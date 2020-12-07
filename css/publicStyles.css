@@ -1,0 +1,55 @@
+.navbar-nav li {
+    font-weight: bold;
+    font-family: "Lucia Sans Unicode","Lucia Grande", sans-serif;
+    font-size: 1.2rem;
+}
+
+.blogpost {
+    /* background-color: white; */
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    overflow: hidden;
+}
+
+#heading {
+    color: #000000;
+    font-family: Bitter,Georgia,"Times New Roman",Times,serif;
+    font-weight: bold;
+}
+
+#heading:hover{
+    color: #666666;
+}
+
+.description {
+    color: darkgray;
+    font-weight: bold;
+    margin-top: -2px;
+}
+
+.post {
+    font-size: 1.1em;
+    font-family: "Lucia Sans Unicode","Lucia Grande", sans-serif;
+    text-align: justify;
+}
+
+.btn {
+    float: right;
+}
+
+/* Sidebar */
+.imageicon {
+    max-width: 150px;
+    margin: 0 auto;
+    display: block;
+}
+
+/* Footer */
+#Footer {
+    padding: 10px;
+    border-top: 1px solid black;
+    color: #eeeeee;
+    background-color: #211f22;
+    text-align: center;
+}
