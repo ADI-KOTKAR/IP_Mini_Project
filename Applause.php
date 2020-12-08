@@ -1,7 +1,7 @@
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
 <?php require_once("include/DB.php"); ?>
-<?php Confirm_Login(); ?>
+<?php Confirm_Login() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +12,11 @@
     <!--  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechVents | Admin Panel</title>
+    <title>TechVents | User Panel</title>
     <link rel="stylesheet" href="css/adminStyles.css">
 </head>
-<body style="background:#f5f5f5;">    
+<body style="background:#f5f5f5;">
+    
 <!-- Main Container -->
 <div class="container-fluid">
 
@@ -25,7 +26,7 @@
         <div class="col-sm-2" style="background: #f5f5f5;">
         <br>
             <ul id="Side_Menu" class="nav nav-pills nav-stacked">
-                <li class="active"><a href="Dashboard.php">
+                <li><a href="Dashboard.php">
                     <span class="glyphicon glyphicon-th"></span> Dashboard</a></li>
                 <li><a href="AddNewPost.php">
                     <span class="glyphicon glyphicon-list-alt"></span> &nbsp; Add New Post</a></li>
@@ -33,11 +34,10 @@
                     <span class="glyphicon glyphicon-tags"></span> &nbsp; Categories</a></li>
                 <li><a href="Admins.php">
                     <span class="glyphicon glyphicon-user"></span> &nbsp; Manage Admins</a></li>
-                <li><a href="Applause.php">
+                <li class="active"><a href="Applause.php">
                     <img src="https://img.icons8.com/ios-filled/15/000000/applause.png" alt=""> &nbsp; Applauded Posts</a></li>
                 <li><a href="Comments.php">
-                    <span class="glyphicon glyphicon-comment"></span> 
-                    &nbsp; Comments
+                    <span class="glyphicon glyphicon-comment"></span> &nbsp; Comments
                     <?php
                         $ConnectingDB;
 
@@ -65,7 +65,7 @@
 
         <!-- Main area -->
         <div class="col-sm-10" style="background:#ffffff;">
-            <h1>Admin Dashboard</h1>
+            <h1>Applauded Posts</h1>
             <?php 
                 echo Message(); echo SuccessMessage();
             ?> 
@@ -79,18 +79,20 @@
                         <th>Author</th>
                         <th>Category</th>
                         <th>Banner</th>
-                        <th>Comments</th>
-                        <th>Action</th>
                         <th>Details</th>
                     </tr>
                     <?php
                         global $ConnectingDB;
-                        $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
+                        $UserId = $_SESSION["User_Id"];
+                        $ViewQuery = "SELECT claps.datetime, admin_panel.title, admin_panel.category, admin_panel.author, 
+                                        admin_panel.image, admin_panel.post FROM admin_panel 
+                                        INNER JOIN claps ON admin_panel.id=claps.admin_panel_id 
+                                        WHERE claps.clapedby='$UserId' ";
                         $Execute = $Connection->query($ViewQuery);
                         $SrNo = 0;
                         
                         while($DataRows = $Execute->fetch_assoc()){
-                            $Id = $DataRows["id"];
+                            // $Id = $DataRows["id"];
                             $DateTime = $DataRows["datetime"];
                             $Title = $DataRows["title"];
                             $Category = $DataRows["category"];
@@ -126,39 +128,6 @@
                             ?>
                         </td>
                         <td><img src="uploads/<?php echo $Image; ?>" alt="" width="150px" height="50px"></td>
-                        <td>
-                            <?php
-                                $ConnectingDB;
-                                $QueryApproved = "SELECT COUNT(*) from comments WHERE admin_panel_id='$Id' AND status='ON' ";
-                                $ExecuteApproved = $Connection->query($QueryApproved);
-
-                                $QueryDisApproved = "SELECT COUNT(*) from comments WHERE admin_panel_id='$Id' AND status='OFF' ";
-                                $ExecuteDisApproved = $Connection->query($QueryDisApproved);
-
-                                $RowsApproved = $ExecuteApproved->fetch_assoc();
-                                $TotalApproved = array_shift($RowsApproved);
-
-                                $RowsDisApproved = $ExecuteDisApproved->fetch_assoc();
-                                $TotalDisApproved = array_shift($RowsDisApproved);
-
-                                if($TotalApproved){
-                            ?>
-                            <span class="label label-success pull-right">
-                                <?php echo $TotalApproved; ?>
-                            </span>
-                            <?php
-                                 } 
-                                 if($TotalDisApproved){
-                            ?>
-                            <span class="label label-danger pull-left">
-                                <?php echo $TotalDisApproved; ?>
-                            </span>
-                            <?php } ?>
-                        </td>
-                        <td>
-                            <a href="EditPost.php?Edit=<?php echo $Id; ?>"><span class="btn btn-warning">Edit</span></a>
-                            <a href="DeletePost.php?Delete=<?php echo $Id; ?>"><span class="btn btn-danger">Delete</span></a>
-                        </td>
                         <td>
                             <a href="FullPost.php?id=<?php echo $Id; ?>" target="_blank"><span class="btn btn-primary"> Live Preview</span></a>
                         </td>

@@ -9,19 +9,21 @@
     function Login_Attempt($Username, $Password){
         global $ConnectingDB;
         global $Connection;
-        $Query = "SELECT * FROM registration WHERE username='$Username' AND password='$Password' ";
+        $Query = "SELECT * FROM registration WHERE username='$Username' ";
         $Execute = $Connection->query($Query);
 
-        if($admin = $Execute->fetch_assoc()){
+        if($user = $Execute->fetch_assoc()){
             // print_r($admin);
-            return $admin;
+            $PasswordCheck = password_verify($Password, $user['password']);
+            if($PasswordCheck){ return $user; }
+            else { return null; }
         } else {
             return null;
         }
     }
 
     function Login(){
-        if(isset($_SESSION["User_Id"])){
+        if(isset($_SESSION["User_Id"]) && $_SESSION["Role"] == "Admin"){
             return true;
         }
     }
@@ -29,9 +31,29 @@
     function Confirm_Login(){
         if(!Login()){
             $_SESSION["ErrorMessage"] = "Login Required";
+            $_SESSION["User_Id"] = null;
+            $_SESSION["Username"] = null;
+            $_SESSION["Role"] = null;
+            // session_destroy();
             Redirect_to("Login.php");
         }
     }
 
-    Login_Attempt('Shreyas', '12345');
+    function User_Login(){
+        if(isset($_SESSION["User_Id"]) && $_SESSION["Role"] == "User"){
+            return true;
+        }
+    }
+
+    function Confirm_User_Login(){
+        if(!User_Login()){
+            $_SESSION["ErrorMessage"] = "Login Required";
+            $_SESSION["User_Id"] = null;
+            $_SESSION["Username"] = null;
+            $_SESSION["Role"] = null;
+            // session_destroy();
+            Redirect_to("Login.php");
+        }
+    }
+
 ?>

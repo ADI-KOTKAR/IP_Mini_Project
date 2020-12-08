@@ -1,6 +1,17 @@
 <?php require_once("include/DB.php"); ?>
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
+<?php
+    if(isset($_GET["ClappedOn"])){  
+        $ConnectingDB;
+        $PostId = $_GET["ClappedOn"];
+        $CountClapsQuery = "SELECT COUNT(*) FROM claps 
+                            WHERE admin_panel_id='$PostId' ";
+        $ExecuteClapQuery = $Connection->query($CountClapsQuery);
+        $ClapsCount = $ExecuteApproved->fetch_assoc();
+        $TotalClaps = $ExecuteClapQuery->fetch_assoc()['COUNT(*)'];
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,7 +19,8 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery-3.5.1.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!--  -->
+    <!--Jquery AJAX  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechVents | Blogs</title>
@@ -33,10 +45,16 @@
             <ul class="nav navbar-nav">
                 <li><a href="">Home</a></li>
                 <li class="active"><a href="Blog.php">Blog</a></li>
-                <li><a href="">About Us</a></li>
+                <li><a href="Events.php">Events</a></li>
+                <li><a href="News.php">News</a></li>
                 <li><a href="">Services</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">Features</a></li>
+                <?php
+                    if(isset($_SESSION["Username"])){
+                        print "<li><a href=\"Logout.php\">Logout</a></li>";
+                    } else {
+                        print "<li><a href=\"Login.php\">Login</a></li>";
+                    }
+                ?>
             </ul>
             <form action="Blog.php" class="navbar-form navbar-right">
                 <div class="form-group">
@@ -47,6 +65,10 @@
         </div>
     </div>
 </nav>
+
+<?php
+    echo Message(); echo SuccessMessage();
+?>
 
 <!-- Container -->
 <div class="container">
@@ -128,7 +150,22 @@
                         <span class="badge">
                             Comments: <?php echo $TotalApproved;?> 
                         </span>
-                        <?php } ?>
+                        <?php
+                            }
+                            $ConnectingDB;
+                            $UserId = $_SESSION["User_Id"];
+                            $CheckClapQuery = "SELECT COUNT(*) FROM claps 
+                                                WHERE admin_panel_id='$PostId' ";
+                            $ExecuteClapQuery = $Connection->query($CheckClapQuery);
+                            $ClapsCount = $ExecuteApproved->fetch_assoc();
+                            $TotalClaps = $ExecuteClapQuery->fetch_assoc()['COUNT(*)'];
+
+                            if($TotalClaps){
+                        ?>
+                         | <img src="https://img.icons8.com/ios/20/000000/applause.png"/> <?php echo $TotalClaps;?> 
+                        <?php }
+                            
+                        ?>
                     </p>
                     <p class="post">
                         <?php 
@@ -196,10 +233,13 @@
 
         <!-- Sidebar -->
         <div class="col-sm-offset-1 col-sm-3">
-            <h2>About Me</h2>
-            <img src="https://img.icons8.com/ios-filled/150/000000/user-male-circle.png" class="img-responsive img-circle imageicon" alt="">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsam ratione ea, dolorum aliquam, dolor ipsum optio nisi quis quaerat, voluptas et deserunt atque libero in eligendi praesentium corrupti quisquam?</p>
-            
+            <?php
+                if(isset($_SESSION["Username"])){ ?>
+                <h2>About Me</h2>
+                <img src="https://img.icons8.com/ios-filled/150/000000/user-male-circle.png" class="img-responsive img-circle imageicon" alt="">
+                <p class="lead"><?php echo $_SESSION["Username"] ?></p> 
+            <?php }
+            ?>
             <div class="panel panel-success">
                 <div class="panel-heading">
                     <h2 class="panel-title">Categories</h2>

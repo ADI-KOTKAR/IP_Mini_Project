@@ -1,6 +1,12 @@
 <?php require_once("include/DB.php"); ?>
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
+<?php
+    if(!isset($_SESSION["Username"])){
+        $_SESSION["ErrorMessage"] = "Please Register/Login to view content.";
+        Redirect_to("Blog.php");
+    }
+?>
 <?php 
     if(isset($_POST["Submit"])){
         $Name = $Connection->real_escape_string($_POST["Name"]);
@@ -31,6 +37,47 @@
             }
         }
     }
+
+    if(isset($_GET["ClappedBy"]) && isset($_GET["OnPost"])){  
+        date_default_timezone_set("Asia/Kolkata");
+        $CurrentTime = time();
+        $DateTime = strftime("%B-%d-%Y %H:%M:%S", $CurrentTime);
+        $ClappedBy = $_GET["ClappedBy"];
+        $PostId = $_GET["OnPost"];
+
+        $ConnectingDB;
+        $Query = "INSERT INTO claps(datetime,clapedby,admin_panel_id)
+                    VALUES('$DateTime','$ClappedBy','$PostId' )";
+        $Execute = $Connection->query($Query);
+        if($Execute){
+            $_SESSION["SuccessMessage"] = "Applause Submitted Successfully";
+            Redirect_to("FullPost.php?id={$PostId}");
+        } else{
+            $_SESSION["ErrorMessage"] = "Something Went Wrong, Try Again!";
+            Redirect_to("FullPost.php?id={$PostId}");
+        }
+    }
+
+    if(isset($_GET["UnClappedBy"]) && isset($_GET["OnThePost"])){  
+        date_default_timezone_set("Asia/Kolkata");
+        $CurrentTime = time();
+        $DateTime = strftime("%B-%d-%Y %H:%M:%S", $CurrentTime);
+        $UnClappedBy = $_GET["UnClappedBy"];
+        $PostId = $_GET["OnThePost"];
+
+        $ConnectingDB;
+        $Query = "DELETE FROM claps WHERE
+                    admin_panel_id='$PostId' AND clapedby='$UnClappedBy' ";
+        $Execute = $Connection->query($Query);
+        if($Execute){
+            $_SESSION["SuccessMessage"] = "Applause Removed Successfully";
+            Redirect_to("FullPost.php?id={$PostId}");
+        } else{
+            $_SESSION["ErrorMessage"] = "Something Went Wrong, Try Again!";
+            Redirect_to("FullPost.php?id={$PostId}");
+        }
+    }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -95,10 +142,16 @@
             <ul class="nav navbar-nav">
                 <li><a href="">Home</a></li>
                 <li class="active"><a href="Blog.php">Blog</a></li>
-                <li><a href="">About Us</a></li>
+                <li><a href="Events.php">Events</a></li>
+                <li><a href="News.php">News</a></li>
                 <li><a href="">Services</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">Features</a></li>
+                <?php
+                    if(isset($_SESSION["Username"])){
+                        print "<li><a href=\"Logout.php\">Logout</a></li>";
+                    } else {
+                        print "<li><a href=\"Login.php\">Login</a></li>";
+                    }
+                ?>
             </ul>
             <form action="Blog.php" class="navbar-form navbar-right">
                 <div class="form-group">
@@ -166,10 +219,44 @@
                         ?>
                     </p>
                 </div>
-                <br> <hr>
+                <br><hr>
                 
             </div>
+                Auhor: <b><?php echo $Admin; ?></b>
+                
+                <?php
+                    $ConnectingDB;
+                    $UserId = $_SESSION["User_Id"];
+                    $CheckClapQuery = "SELECT COUNT(*) FROM claps 
+                                        WHERE clapedby='$UserId' 
+                                        AND admin_panel_id='$PostId' ";
+                    $ExecuteClapQuery = $Connection->query($CheckClapQuery);
+                    
+                    // $DataRows = $ExecuteClapQuery->fetch_assoc();
+                    if($ExecuteClapQuery->fetch_assoc()['COUNT(*)']==0) 
+                    {
+                        print "
+                        <a class=\"pull-right\" href=\"FullPost.php?ClappedBy={$UserId}&OnPost={$PostId}\">
+                            <button style=\"border:none; background: none\"><img src=\"https://img.icons8.com/ios/25/000000/applause.png\"/></button>
+                        </a>
+                        ";
+                    }
+                    else 
+                    {   
+                        print "
+                        <a class=\"pull-right\" href=\"FullPost.php?UnClappedBy={$UserId}&OnThePost={$PostId}\">
+                            <button class=\"pull-right\" style=\"border:none; background: none\"><img src=\"https://img.icons8.com/ios-filled/25/000000/applause.png\"/></button>
+                        </a>
+                        ";
+                    }
+                    // print($ExecuteClapQuery->fetch_assoc()['COUNT(*)']);
+                ?>
+                
+
             <?php } ?>
+
+            <hr>
+
             <span class="FieldInfo">Share Your Thoughts about this post.</span> <br>
             <span class="FieldInfo">Comments</span>
             <?php
@@ -220,9 +307,13 @@
 
         <!-- Sidebar -->
         <div class="col-sm-offset-1 col-sm-3">
-            <h2>About Me</h2>
-            <img src="https://img.icons8.com/ios-filled/150/000000/user-male-circle.png" class="img-responsive img-circle imageicon" alt="">
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aperiam ipsam ratione ea, dolorum aliquam, dolor ipsum optio nisi quis quaerat, voluptas et deserunt atque libero in eligendi praesentium corrupti quisquam?</p>
+            <?php
+                if(isset($_SESSION["Username"])){ ?>
+                <h2>About Me</h2>
+                <img src="https://img.icons8.com/ios-filled/150/000000/user-male-circle.png" class="img-responsive img-circle imageicon" alt="">
+                 <p class="lead"><?php echo $_SESSION["Username"] ?></p> 
+            <?php }
+            ?>
             
             <div class="panel panel-success">
                 <div class="panel-heading">

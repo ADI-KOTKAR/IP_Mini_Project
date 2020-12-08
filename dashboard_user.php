@@ -1,7 +1,7 @@
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
 <?php require_once("include/DB.php"); ?>
-<?php Confirm_Login(); ?>
+<?php Confirm_User_Login() ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,10 +12,11 @@
     <!--  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechVents | Admin Panel</title>
+    <title>TechVents | User Panel</title>
     <link rel="stylesheet" href="css/adminStyles.css">
 </head>
-<body style="background:#f5f5f5;">    
+<body style="background:#f5f5f5;">
+    
 <!-- Main Container -->
 <div class="container-fluid">
 
@@ -27,34 +28,13 @@
             <ul id="Side_Menu" class="nav nav-pills nav-stacked">
                 <li class="active"><a href="Dashboard.php">
                     <span class="glyphicon glyphicon-th"></span> Dashboard</a></li>
-                <li><a href="AddNewPost.php">
+                <li><a href="AddNewPost_User.php">
                     <span class="glyphicon glyphicon-list-alt"></span> &nbsp; Add New Post</a></li>
-                <li><a href="Categories.php">
-                    <span class="glyphicon glyphicon-tags"></span> &nbsp; Categories</a></li>
-                <li><a href="Admins.php">
-                    <span class="glyphicon glyphicon-user"></span> &nbsp; Manage Admins</a></li>
-                <li><a href="Applause.php">
+                <li><a href="ChangePassword.php">
+                    <span class="glyphicon glyphicon-cog"></span> &nbsp; Change Password</a></li>
+                <li><a href="Applause_User.php">
                     <img src="https://img.icons8.com/ios-filled/15/000000/applause.png" alt=""> &nbsp; Applauded Posts</a></li>
-                <li><a href="Comments.php">
-                    <span class="glyphicon glyphicon-comment"></span> 
-                    &nbsp; Comments
-                    <?php
-                        $ConnectingDB;
-
-                        $QueryDisApproved = "SELECT COUNT(*) from comments WHERE status='OFF' ";
-                        $ExecuteDisApproved = $Connection->query($QueryDisApproved);
-
-                        $RowsDisApproved = $ExecuteDisApproved->fetch_assoc();
-                        $TotalDisApproved = array_shift($RowsDisApproved);
-
-                        if($TotalDisApproved){
-                    ?>
-                    <span class="label label-warning pull-right">
-                        <?php echo $TotalDisApproved;?>
-                    </span>
-                    <?php } ?>
-                </a></li>
-                <li><a href="Blog.php?Page=0" target="_blank">
+                <li><a href="Blog.php?Page=0">
                     <span class="glyphicon glyphicon-equalizer"></span> &nbsp; Live Blog</a></li>
                 <li><a href="Logout.php">
                     <span class="glyphicon glyphicon-log-out"></span> &nbsp; Log Out</a></li>
@@ -65,7 +45,7 @@
 
         <!-- Main area -->
         <div class="col-sm-10" style="background:#ffffff;">
-            <h1>Admin Dashboard</h1>
+            <h1>User Dashboard</h1>
             <?php 
                 echo Message(); echo SuccessMessage();
             ?> 
@@ -80,12 +60,12 @@
                         <th>Category</th>
                         <th>Banner</th>
                         <th>Comments</th>
-                        <th>Action</th>
                         <th>Details</th>
                     </tr>
                     <?php
                         global $ConnectingDB;
-                        $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
+                        $Username = $_SESSION["Username"];
+                        $ViewQuery = "SELECT * FROM admin_panel WHERE author='$Username' ORDER BY id desc";
                         $Execute = $Connection->query($ViewQuery);
                         $SrNo = 0;
                         
@@ -154,10 +134,6 @@
                                 <?php echo $TotalDisApproved; ?>
                             </span>
                             <?php } ?>
-                        </td>
-                        <td>
-                            <a href="EditPost.php?Edit=<?php echo $Id; ?>"><span class="btn btn-warning">Edit</span></a>
-                            <a href="DeletePost.php?Delete=<?php echo $Id; ?>"><span class="btn btn-danger">Delete</span></a>
                         </td>
                         <td>
                             <a href="FullPost.php?id=<?php echo $Id; ?>" target="_blank"><span class="btn btn-primary"> Live Preview</span></a>

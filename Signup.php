@@ -1,34 +1,48 @@
 <?php require_once("include/DB.php"); ?>
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
+<?php
+    if(isset($_SESSION["Username"])){
+        $_SESSION["ErrorMessage"] = "Already in a Session. Please Logout!";
+        Redirect_to("Blog.php");
+    }
+?>
 <?php 
     if(isset($_POST["Submit"])){
         $Username = $Connection->real_escape_string($_POST["Username"]);
         $Password = $Connection->real_escape_string($_POST["Password"]);
+        $ConfirmPassword = $Connection->real_escape_string($_POST["ConfirmPassword"]);
         
-        if(empty($Username) || empty($Password)){
+        date_default_timezone_set("Asia/Kolkata");
+        $CurrentTime = time();
+        $DateTime = strftime("%B-%d-%Y %H:%M:%S", $CurrentTime);
+        $Admin = "Aditya Kotkar";
+
+        if(empty($Username) || empty($Password) || empty($ConfirmPassword)){
             $_SESSION["ErrorMessage"]="All fields must be filled out";
-            Redirect_to("Login.php");
+            Redirect_to("Signup.php");
+        } elseif(strlen($Password)<4){
+            $_SESSION["ErrorMessage"]="Maximum 4 Characters for Password";
+            Redirect_to("Signup.php");
+        } elseif($Password !== $ConfirmPassword){
+            $_SESSION["ErrorMessage"]="Confirm Password does not match.";
+            Redirect_to("Signup.php");
         } else {
-            $Found_Account = Login_Attempt($Username, $Password);
-            $_SESSION["User_Id"] = $Found_Account["id"];
-            $_SESSION["Username"] = $Found_Account["username"];
-            $_SESSION["Role"] = $Found_Account["role"];
-
-            echo gettype($Found_Account["role"]);
-
-            if($Found_Account){
-                if($_SESSION["Role"] == "Admin"){
-                    $_SESSION["SuccessMessage"] = "Welcome Back Boss - {$_SESSION["Username"]}!";
-                    Redirect_to("dashboard.php");
-                } else {
-                    $_SESSION["SuccessMessage"] = "Welcome Back {$_SESSION["Username"]}!";
-                    Redirect_to("dashboard_user.php");
-                }
-                
-            } else {
-               $_SESSION["ErrorMessage"] = "Invalid Credentials";
-               Redirect_to("Login.php");
+            global $ConnectingDB;
+            $HashPassword = password_hash($Password, PASSWORD_BCRYPT);
+            $Query = "INSERT INTO registration(datetime,addedby,username,password,role)
+                        VALUES('$DateTime','$Admin','$Username','$HashPassword','User')";
+            $Execute = $Connection->query($Query);
+            if($Execute){    
+                $Found_Account = Login_Attempt($Username, $HashPassword);
+                $_SESSION["User_Id"] = $Found_Account["id"];
+                $_SESSION["Username"] = $Found_Account["username"];
+                $_SESSION["Role"] = $Found_Account["role"];
+                $_SESSION["SuccessMessage"] = "User Added Successfully";
+                Redirect_to("dashboard_user.php");
+            } else{
+                $_SESSION["ErrorMessage"] = "Failed to add User";
+                Redirect_to("Signup.php");
             }
         }
     }
@@ -43,7 +57,7 @@
     <!--  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechVents | Login</title>
+    <title>TechVents | Register</title>
     <link rel="stylesheet" href="css/adminStyles.css">
 </head>
 
@@ -92,12 +106,12 @@
         <!-- Main area -->
         <div class="col-sm-4 col-sm-offset-4" style="background:#ffffff;">
         <br><br><br><br>
-            <h2>Welcome Back</h2>
+            <h2>Welcome To TechVents</h2>
             <?php 
                 echo Message(); echo SuccessMessage();
             ?> 
             <div>
-                <form action="Login.php" method="post">
+                <form action="Signup.php" method="post">
                     <fieldset>
                         <div class="form-group">
                             <label for="username"><span class="FieldInfo">Username:</span></label>
@@ -113,7 +127,14 @@
                                 <input class="form-control " type="password" name="Password" id="password" placeholder="Password"><br>
                             </div>
                         </div>
-                        <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Login"><br>
+                        <div class="form-group">
+                            <label for="password"><span class="FieldInfo">Confirm Password:</span></label>
+                            <div class="input-group input-group-lg">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                <input class="form-control " type="password" name="ConfirmPassword" id="confirmpassword" placeholder="Confirm Password"><br>
+                            </div>
+                        </div>
+                        <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Register"><br>
                     </fieldset>
                 </form>
             </div>

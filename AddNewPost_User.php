@@ -1,7 +1,7 @@
 <?php require_once("include/DB.php"); ?>
 <?php require_once("include/Sessions.php"); ?>
 <?php require_once("include/Functions.php"); ?>
-<?php Confirm_Login() ?>
+<?php Confirm_User_Login() ?>
 <?php 
     if(isset($_POST["Submit"])){
         $Title = $Connection->real_escape_string($_POST["Title"]);
@@ -17,14 +17,14 @@
 
         if(empty($Title)){
             $_SESSION["ErrorMessage"]="Title cannot be Empty!";
-            Redirect_to("AddNewPost.php");
+            Redirect_to("AddNewPost_User.php");
             exit;
         } elseif(strlen($Title)<2){
             $_SESSION["ErrorMessage"]="Title should be atleast 2 characters long";
-            Redirect_to("AddNewPost.php");
+            Redirect_to("AddNewPost_User.php");
         } elseif(empty($Category)){
             $_SESSION["ErrorMessage"]="Category cannot be Empty!";
-            Redirect_to("AddNewPost.php");
+            Redirect_to("AddNewPost_User.php");
         } else{
             global $ConnectingDB;
             $Query = "INSERT INTO admin_panel(datetime,title,category,author,image,post)
@@ -33,10 +33,10 @@
             move_uploaded_file($_FILES["Image"]["tmp_name"], $Target);
             if($Execute){
                 $_SESSION["SuccessMessage"] = "Post Added Successfully";
-                Redirect_to("AddNewPost.php");
+                Redirect_to("AddNewPost_User.php");
             } else{
                 $_SESSION["ErrorMessage"] = "Something Went Wrong, Try Again!";
-                Redirect_to("AddNewPost.php");
+                Redirect_to("AddNewPost_User.php");
             }
         }
     }
@@ -78,35 +78,15 @@
         <div class="col-sm-2" style="background: #f5f5f5;">
         <br>
             <ul id="Side_Menu" class="nav nav-pills nav-stacked">
-                <li><a href="Dashboard.php">
+                <li><a href="dashboard_user.php">
                     <span class="glyphicon glyphicon-th"></span> Dashboard</a></li>
-                <li class="active"><a href="AddNewPost.php">
+                <li class="active"><a href="AddNewPost_User.php">
                     <span class="glyphicon glyphicon-list-alt"></span> &nbsp; Add New Post</a></li>
-                <li ><a href="Categories.php">
-                    <span class="glyphicon glyphicon-tags"></span> &nbsp; Categories</a></li>
-                <li><a href="Admins.php">
-                    <span class="glyphicon glyphicon-user"></span> &nbsp; Manage Admins</a></li>
-                <li><a href="Applause.php">
+                <li><a href="ChangePassword.php">
+                    <span class="glyphicon glyphicon-cog"></span> &nbsp; Change Password</a></li>
+                <li><a href="Applause_User.php">
                     <img src="https://img.icons8.com/ios-filled/15/000000/applause.png" alt=""> &nbsp; Applauded Posts</a></li>
-                <li><a href="Comments.php">
-                    <span class="glyphicon glyphicon-comment"></span> &nbsp; Comments
-                    <?php
-                        $ConnectingDB;
-
-                        $QueryDisApproved = "SELECT COUNT(*) from comments WHERE status='OFF' ";
-                        $ExecuteDisApproved = $Connection->query($QueryDisApproved);
-
-                        $RowsDisApproved = $ExecuteDisApproved->fetch_assoc();
-                        $TotalDisApproved = array_shift($RowsDisApproved);
-
-                        if($TotalDisApproved){
-                    ?>
-                    <span class="label label-warning pull-right">
-                        <?php echo $TotalDisApproved;?>
-                    </span>
-                    <?php } ?>
-                </a></li>
-                <li><a href="Blog.php?Page=0" target="_blank">
+                <li><a href="Blog.php?Page=0">
                     <span class="glyphicon glyphicon-equalizer"></span> &nbsp; Live Blog</a></li>
                 <li><a href="Logout.php">
                     <span class="glyphicon glyphicon-log-out"></span> &nbsp; Log Out</a></li>
@@ -122,7 +102,7 @@
                 echo Message(); echo SuccessMessage();
             ?> 
             <div>
-                <form action="AddNewPost.php" method="post" enctype="multipart/form-data">
+                <form action="AddNewPost_User.php" method="post" enctype="multipart/form-data">
                     <fieldset>
                         <div class="form-group">
                             <label for="title"><span class="FieldInfo">Title:</span></label>

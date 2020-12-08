@@ -16,43 +16,7 @@
     <link rel="stylesheet" href="css/adminStyles.css">
 </head>
 <body style="background:#f5f5f5;">
-
-<!-- Navbar -->
-<nav class="navbar navbar-inverse" role="navigation" style="background:#ffffff; border:0; margin:0">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" style="background:black;" data-toggle="collapse" data-target="#collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="Blog.php">
-                <img src="images/Techvents-text-removebg-preview.png" width=150 height=35 alt="" style="">
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="collapse">
-            <ul class="nav navbar-nav">
-                <li><a href="">Home</a></li>
-                <li><a href="Blog.php" target="blank">Blog</a></li>
-                <li><a href="">About Us</a></li>
-                <li><a href="">Services</a></li>
-                <li><a href="">Contact Us</a></li>
-                <li><a href="">Features</a></li>
-            </ul>
-            <form action="Blog.php" class="navbar-form navbar-right">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="Search">
-                </div>
-                <button class="btn btn-default" name="SearchButton">Go</button>
-            </form>
-        </div>
-    </div>
-    <br>
-</nav>
-
-<!-- Ending of Navbar -->
-    
+   
 <!-- Main Container -->
 <div class="container-fluid">
 
@@ -70,6 +34,8 @@
                     <span class="glyphicon glyphicon-tags"></span> &nbsp; Categories</a></li>
                 <li class=""><a href="Admins.php">
                     <span class="glyphicon glyphicon-user"></span> &nbsp; Manage Admins</a></li>
+                <li><a href="Applause.php">
+                    <img src="https://img.icons8.com/ios-filled/15/000000/applause.png" alt=""> &nbsp; Applauded Posts</a></li>
                 <li class="active"><a href="Comments.php">
                     <span class="glyphicon glyphicon-comment"></span> &nbsp; Comments
                     <?php
@@ -88,7 +54,7 @@
                     </span>
                     <?php } ?>
                 </a></li>
-                <li><a href="">
+                <li><a href="Blog.php?Page=0" target="_blank">
                     <span class="glyphicon glyphicon-equalizer"></span> &nbsp; Live Blog</a></li>
                 <li><a href="Logout.php">
                     <span class="glyphicon glyphicon-log-out"></span> &nbsp; Log Out</a></li>

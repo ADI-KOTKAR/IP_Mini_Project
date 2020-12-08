@@ -11,7 +11,7 @@
         $Execute = $Connection->query($Query);
 
         if($Execute){
-            $_SESSION["SuccessMessage"] = "Admin Deleted Successfully";
+            $_SESSION["SuccessMessage"] = "Account Deleted Successfully";
             Redirect_to("Admins.php");
         } else{
             $_SESSION["ErrorMessage"] = "Something Went Wrong. Try Again!";
