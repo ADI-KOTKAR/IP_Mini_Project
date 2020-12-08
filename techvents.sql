@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 07, 2020 at 04:48 PM
+-- Generation Time: Dec 08, 2020 at 09:57 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -72,7 +72,8 @@ INSERT INTO `admin_panel` (`id`, `datetime`, `title`, `category`, `author`, `ima
 (39, 'December-07-2020 11:36:27', 'Artificial Intelligence vs. Machine Learning vs. Deep Learning: What’s the Difference', 'Artificial Intelligence', 'Bob', 'AI.jpg', 'Let’s clear things up: artificial intelligence (AI), machine learning (ML), and deep learning (DL) are three different things.\r\n\r\n    Artificial intelligence is a science like mathematics or biology. It studies ways to build intelligent programs and machines that can creatively solve problems, which has always been considered a human prerogative.\r\n    Machine learning is a subset of artificial intelligence (AI) that provides systems the ability to automatically learn and improve from experience without being explicitly programmed. In ML, there are different algorithms (e.g. neural networks) that help to solve problems.\r\n    Deep learning, or deep neural learning, is a subset of machine learning, which uses the neural networks to analyze different factors with a structure that is similar to the human neural system.\r\n\r\nImage for post'),
 (40, 'December-07-2020 11:38:19', 'Top 7 FREE Artificial Intelligence Courses from the Ivy League Universities', 'Web Development', 'Bob', 'AI.jpg', '                                    These days it feels like every week comes with a new AI course. With such volume, we need to be really selective with our time, energy and focus. A simple but effective strategy is to attend the courses from the best minds in the field.\r\n\r\n    Use your time effectively and attend the courses from the best minds in the field.\r\n\r\nWith the help of my fellow Data Scientists, we curated a list of the top 7 Artificial Intelligence courses from the Ivy League Universities. The course had to be free to be included in the list.\r\n\r\nI haven’t attended all the courses on the list but I got high praise from my colleagues. Next on my course list, I wish to attend is the Reinforcement Learning course.                                '),
 (41, 'December-07-2020 11:37:55', 'Fantasy Football + Artificial Intelligence Cheat Sheet!', 'Artificial Intelligence', 'Bob', 'AI.jpg', 'After hours and days of trial and error (and error and trial again) I feel confident enough to release the culmination of my two previous articles (part 1 & part 2) — a Machine Learning / Artificial Intelligence fantasy football 2017 cheat sheet.\r\n\r\nThe R squared scores were .84 and .78 for the top models run on QB and RB respectively!\r\n\r\nDid I lose you? Read below… and then buy my cheat sheet and let’s try this thing.'),
-(42, 'December-07-2020 13:18:19', 'Web Dev in 2020!', 'Web Development', 'Bob', 'Web_Development.jpg', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services');
+(42, 'December-07-2020 13:18:19', 'Web Dev in 2020!', 'Web Development', 'Bob', 'Web_Development.jpg', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services'),
+(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. ');
 
 -- --------------------------------------------------------
 
@@ -101,6 +102,28 @@ INSERT INTO `category` (`id`, `datetime`, `name`, `creatorname`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `claps`
+--
+
+CREATE TABLE `claps` (
+  `id` int(10) NOT NULL,
+  `datetime` varchar(200) NOT NULL,
+  `clapedby` int(10) NOT NULL,
+  `admin_panel_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `claps`
+--
+
+INSERT INTO `claps` (`id`, `datetime`, `clapedby`, `admin_panel_id`) VALUES
+(1, 'December-08-2020 18:42:45', 14, 39),
+(2, 'December-08-2020 19:12:30', 14, 42),
+(3, 'December-08-2020 19:33:31', 15, 28);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `comments`
 --
 
@@ -120,10 +143,10 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `datetime`, `name`, `email`, `comment`, `approvedby`, `status`, `admin_panel_id`) VALUES
-(8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Shreyas', 'ON', 12),
+(8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Pooja', 'OFF', 12),
 (9, 'December-07-2020 15:49:30', 'hitesh', 'hitesh@ryt.com', '<b>Bold</b>\r\n<i>Italics</i>', 'Shreyas', 'ON', 29),
 (10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'ON', 41),
-(11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Pending', 'OFF', 42),
+(11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'ON', 42),
 (12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40);
 
 -- --------------------------------------------------------
@@ -137,17 +160,18 @@ CREATE TABLE `registration` (
   `datetime` varchar(50) NOT NULL,
   `addedby` varchar(200) NOT NULL,
   `username` varchar(200) NOT NULL,
-  `password` varchar(200) NOT NULL
+  `password` varchar(200) NOT NULL,
+  `role` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `registration`
 --
 
-INSERT INTO `registration` (`id`, `datetime`, `addedby`, `username`, `password`) VALUES
-(3, 'December-06-2020 22:13:41', 'Aditya Kotkar', 'Praveenkumar', '12345'),
-(4, 'December-07-2020 07:58:18', 'Aditya Kotkar', 'Shreyas', '12345'),
-(5, 'December-07-2020 09:20:51', 'Praveenkumar', 'Bob', '12345');
+INSERT INTO `registration` (`id`, `datetime`, `addedby`, `username`, `password`, `role`) VALUES
+(13, 'December-08-2020 11:34:12', 'Aditya Kotkar', 'Akash', '$2y$10$q272wNl2sFtu8DESoVqvFOQnUWcajRI4a8obY3U/QATkfm.yBxtR6', 'User'),
+(14, 'December-08-2020 10:41:50', 'Shreyas', 'Aditya', '$2y$10$7ouYYKYgP1rrYg3IUFkzaeDDeiZcJvM6PnYCNmFV11rqpB4Pxm6kC', 'Admin'),
+(15, 'December-08-2020 19:31:32', 'Aditya Kotkar', 'Shreyas', '$2y$10$TYRYwZOlw5w2IgHC2t/fyu73LCHVGyq26yeFCGWYq1fYgFpyRnH5S', 'User');
 
 --
 -- Indexes for dumped tables
@@ -164,6 +188,14 @@ ALTER TABLE `admin_panel`
 --
 ALTER TABLE `category`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `claps`
+--
+ALTER TABLE `claps`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `Post_id` (`admin_panel_id`),
+  ADD KEY `Clapped_by` (`clapedby`);
 
 --
 -- Indexes for table `comments`
@@ -186,13 +218,19 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `admin_panel`
 --
 ALTER TABLE `admin_panel`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
   MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `claps`
+--
+ALTER TABLE `claps`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -204,11 +242,18 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `claps`
+--
+ALTER TABLE `claps`
+  ADD CONSTRAINT `Clapped_by` FOREIGN KEY (`clapedby`) REFERENCES `registration` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `Post_id` FOREIGN KEY (`admin_panel_id`) REFERENCES `admin_panel` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `comments`
