@@ -21,11 +21,27 @@
     <script src="js/bootstrap.min.js"></script>
     <!--Jquery AJAX  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/search.js" ></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechVents | Blogs</title>
     <link rel="stylesheet" href="css/publicStyles.css">
 </head>
+<script>
+    $(document).ready(function(){    
+        $.ajax({
+            type: "POST",
+            url: "Search.php",
+            data: {
+                Search: 'everything',
+            },
+            success: function (html) {
+                $("#display").html(html).show();
+
+            },
+        });
+})
+</script>
 <body>
 
 <nav class="navbar navbar-inverse" role="navigation" style="background:#ffffff; border:0;">
@@ -58,9 +74,8 @@
             </ul>
             <form action="Blog.php" class="navbar-form navbar-right">
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search" name="Search">
+                    <input id="search" type="text" class="form-control" placeholder="Search" name="Search">
                 </div>
-                <button class="btn btn-default" name="SearchButton">Go</button>
             </form>
         </div>
     </div>
@@ -82,157 +97,15 @@
 
         <!-- Main Blog area -->
         <div class="col-sm-8">
-            <?php 
-                global $ConnectingDB;
-                
-                //Search
-                if(isset($_GET["Search"])){
-                    $Search = $_GET["Search"];
-                    $ViewQuery = "SELECT * FROM admin_panel 
-                                    WHERE datetime LIKE '%$Search%' 
-                                    OR title LIKE '%$Search%'
-                                    OR category LIKE '%$Search%' 
-                                    OR post LIKE '%$Search%'
-                                    OR author LIKE '%$Search%' 
-                                    ORDER BY id desc";
-                    
-                } elseif(isset($_GET["Category"])){
-                    //Category
-                    $Category = $_GET["Category"];
-                    $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
-
-                } elseif(isset($_GET["Page"])) {
-                    //Pagination
-                    $Page = $_GET["Page"];
-                    $PostsLimit = 5;
-
-                    if($Page==0 || $Page<1){
-                        $ShowPostFrom = 0;
-                    } else {
-                        $ShowPostFrom = ($Page*$PostsLimit)-$PostsLimit;
-                    }
-                    $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc LIMIT $ShowPostFrom, $PostsLimit";
-
-                } else {
-                    //Default
-                    $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
-                }
-
-                $Execute = $Connection->query($ViewQuery);
-
-                while($DataRows = $Execute->fetch_assoc()){
-                    $PostId = $DataRows["id"];
-                    $DateTime = $DataRows["datetime"];
-                    $Title = $DataRows["title"];
-                    $Category = $DataRows["category"];
-                    $Admin = $DataRows["author"];
-                    $Image = $DataRows["image"];
-                    $Post = $DataRows["post"];
-                
-            ?>
-            <div class="blogpost thumbnail">
-                <img class="img-responsive img-rounded" src="uploads/<?php echo $Image; ?>" alt="">
-                <div class="caption">
-                    <h1 id="heading"><?php echo htmlentities($Title); ?></h1>
-                    <p class="description">
-                        Category: <?php echo htmlentities($Category); ?> | Published on <?php echo htmlentities($DateTime); ?>  
-                        <?php
-                            $ConnectingDB;
-
-                            $QueryApproved = "SELECT COUNT(*) from comments WHERE admin_panel_id='$PostId' AND status='ON' ";
-                            $ExecuteApproved = $Connection->query($QueryApproved);
-
-                            $RowsApproved = $ExecuteApproved->fetch_assoc();
-                            $TotalApproved = array_shift($RowsApproved);
-
-                            if($TotalApproved){
-                        ?> | 
-                        <span class="badge">
-                            Comments: <?php echo $TotalApproved;?> 
-                        </span>
-                        <?php
-                            }
-                            $ConnectingDB;
-                            $UserId = $_SESSION["User_Id"];
-                            $CheckClapQuery = "SELECT COUNT(*) FROM claps 
-                                                WHERE admin_panel_id='$PostId' ";
-                            $ExecuteClapQuery = $Connection->query($CheckClapQuery);
-                            $ClapsCount = $ExecuteApproved->fetch_assoc();
-                            $TotalClaps = $ExecuteClapQuery->fetch_assoc()['COUNT(*)'];
-
-                            if($TotalClaps){
-                        ?>
-                         | <img src="https://img.icons8.com/ios/20/000000/applause.png"/> <?php echo $TotalClaps;?> 
-                        <?php }
-                            
-                        ?>
-                    </p>
-                    <p class="post">
-                        <?php 
-                            if(strlen($Post)>150){ $Post=substr($Post,0,150).'.....'; }
-                            echo $Post; 
-                        ?>
-                    </p>
-                </div>
-                <a href="FullPost.php?id=<?php echo $PostId; ?>">
-                    <span class="btn btn-success">Read More &rsaquo;&rsaquo;</span>
-                </a>
-            </div>
-            <?php } ?>
-            <nav>
-                <ul class="pagination pull-left">
-                    <!-- previous button -->
-                    <?php 
-                    if(isset($Page)){
-                        if($Page>1){ ?>
-                            <li>
-                                <a href="Blog.php?Page=<?php echo $Page-1; ?>">&lsaquo;&lsaquo;</a>
-                            </li>
-                    <?php }} ?>
-                    <!-- Pagination -->
-                    <?php
-                        global $ConnectingDB;
-                        $QueryPagination = "SELECT COUNT(*) FROM admin_panel";
-                        $ExecutePagination = $Connection->query($QueryPagination);
-                        $RowPagination = $ExecutePagination->fetch_assoc();
-                        $TotalPosts = array_shift($RowPagination);
-
-                        if(isset($Page)){
-                            $PostPagination = ceil($TotalPosts/$PostsLimit);
-                        
-                            for($i=1; $i<=$PostPagination; $i++)
-                            {
-                                if(isset($Page) >= 1){
-                                    if($i==$Page){ ?>
-                                        <li class="active">
-                                            <a href="Blog.php?Page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                                        </li>
-                            <?php   } else { ?>
-                                        <li>
-                                            <a href="Blog.php?Page=<?php echo $i; ?>"><?php echo $i; ?></a>
-                                        </li>  
-                            <?php   }
-                                }
-                            }
-                        }
-                    ?>
-                    <!-- next button -->
-                    <?php 
-                    if(isset($Page)){
-                        if($Page+1<=$PostPagination){ ?>
-                            <li>
-                                <a href="Blog.php?Page=<?php echo $Page+1; ?>">&rsaquo;&rsaquo;</a>
-                            </li>
-                    <?php }} ?>       
-                </ul>
-            </nav>
+            <div id="display"></div>
+            <div class="" id="pagination"></div>
         </div>
         <!-- Ending of Main Blog Area -->
 
         
 
         <!-- Sidebar -->
-        <div class="col-sm-offset-1 col-sm-3">
+        <div class="col-sm-offset-1 col-sm-3" >
             <?php
                 if(isset($_SESSION["Username"])){ ?>
                 <h2>About Me</h2>
