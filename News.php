@@ -54,7 +54,6 @@
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search" name="Search">
                 </div>
-                <button class="btn btn-default" name="SearchButton">Go</button>
             </form>
         </div>
     </div>
