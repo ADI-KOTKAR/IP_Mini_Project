@@ -1,0 +1,151 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #fff;
+  color: #000;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+a {
+  color: #262626;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: 80%;
+  max-width: 1100px;
+  margin: 20px auto 5px;
+}
+
+.menu-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 40px;
+  right: 75px;
+  z-index: 2;
+  display: none;
+}
+
+.menu-btn:hover {
+  opacity: 0.5;
+}
+
+/* Nav */
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 20px 0;
+  font-family: "Sansation";
+  font-size: 20px;
+  font-weight: bolder;
+  margin-bottom: 10px;
+}
+
+.nav-main .logo {
+  width: 70px;
+  margin: 1px 10px 1px 50px;
+}
+
+.nav-main .logo-text {
+  width: 150px;
+}
+
+.nav-main ul {
+  display: flex;
+  padding: 10px 20px;
+}
+
+.nav-main ul.main-menu {
+  flex: 1;
+  margin-left: 175px;
+}
+.nav-main ul li a {
+  padding-bottom: 3px;
+}
+.nav-main ul li a:hover {
+  border-bottom: 2px solid #252525;
+}
+.nav-main li {
+  padding: 3px 10px;
+}
+
+.nav-main input[type="text"] {
+  height: 80%;
+  border-radius: 4px;
+  padding: 5px 5px 5px 10px;
+}
+
+.btn {
+  cursor: pointer;
+  display: inline-block;
+  background-color: #000;
+  font-weight: bold;
+  margin: 0;
+  padding: 10px 20px;
+  color: #fff;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
+@media (max-width: 700px) {
+  .menu-btn {
+    display: block;
+  }
+  .nav-main {
+    padding: 20px 0;
+    margin-bottom: 10px;
+  }
+  .nav-main .logo-text {
+    display: none;
+  }
+  .nav-main ul.right-menu {
+    margin-right: 450px;
+  }
+
+  .nav-main ul.main-menu {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -40px;
+    background: #f2f2f2;
+    width: 50%;
+    height: 100%;
+    border-right: #ccc 1px solid;
+    opacity: 0.9;
+    padding: 30px;
+    transform: translateX(-500px);
+    transition: transform 0.5s ease-in-out;
+  }
+  .nav-main ul.main-menu.show {
+    transform: translateX(-150px);
+  }
+
+  .nav-main ul.main-menu li {
+    padding: 10px;
+    border-bottom: #ccc solid 1px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .nav-main ul.main-menu li:last-child {
+    border-bottom: 0;
+  }
+  .nav-main input[type="text"] {
+    height: 60%;
+    width: 66%;
+    border-radius: 4px;
+    padding-left: 5px;
+  }
+}
