@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2020 at 10:01 AM
+-- Generation Time: Dec 10, 2020 at 11:10 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -62,7 +62,6 @@ INSERT INTO `admin_panel` (`id`, `datetime`, `title`, `category`, `author`, `ima
 (29, 'December-07-2020 11:27:25', 'Changing How Startups See Network Security', 'Network Security', 'Praveenkumar', 'Network_Secutity.jpg', 'Experience is a good teacher. However, you don’t have to wait to get your system hacked before learning a thing or two about the evils of technology. Just because you are only starting up does not mean you are prone from cyber attacks. Think about what happened to startups, some well-funded at that, when they failed to prioritize digital security.'),
 (30, 'December-07-2020 11:28:18', 'How I would explain a decade of web development to a time traveler from 2007', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'Hello friend! I hope you like this new world of ours. It’s a lot different than the world of 2007. Quick tip: if you just got a mortgage, go back and cancel it. Trust me.\r\n\r\nI’m glad that you’re still interested in computers! Today we have many more of them than we did 10 years ago, and that comes with new challenges. We wear computers on our wrists and faces, keep them in our pockets, and have them in our fridges and kettles. The cars are driving themselves pretty well, and we’ve taught programs to be better than humans at pretty much every game out there — except maybe drinking.'),
 (31, 'December-07-2020 11:28:59', 'The Ultimate Guide to Learning Full Stack Web Development in 6 months, for $30', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'Hey everyone! In this article I’m going to show you how to go from knowing little to nothing about Web Development to Junior Full Stack Developer in just six months, for under $30.\r\n\r\nThis article will cover everything you need to know! You’ll first learn the basics of Web Development with an online coding bootcamp ($15). You’ll follow that up with an advanced bootcamp ($15). Then, we’ll jump into free tutorials, articles, and documentation where you will reinforce everything you’ve learned in the first two bootcamps. Next, you’ll build a few projects with your new skills and open-source them on GitHub. Finally, we’ll focus on resume creation, interview preparation, and salary negotiation.'),
-(32, 'December-07-2020 11:29:43', 'Increase your web development skill-set: 150 animated tips on Chrome DevTools', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'I’ve published over 150 animated gifs which showcase how to use Chrome DevTools — as part of my Dev Tips newsletter. For most tips, you can fully grasp the feature in less than 30 seconds. I also provide a text based alternative if you want to read more about it.'),
 (33, 'December-07-2020 11:30:54', 'Micro frontends—a microservice approach to front-end web development', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', '                                    For web apps, the front end is becoming bigger and bigger, and the back end is getting less important. Our web app at Weld (web/app creation tool) is 90% front-end code, with a very thin back end. I can imagine that a majority of new web apps being built today are dealing with a similar situation.\r\n\r\nWeb apps also change over time, as do development techniques and frameworks. This requires support for allowing different front-end frameworks to co-exist, e.g. older modules built in JQuery or AngularJS 1.x, combined with newer modules built in React or Vue.                                '),
 (34, 'December-07-2020 11:30:40', 'Angular vs. React: Which Is Better for Web Development?', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'In this article, you will learn how Angular and React both aim to solve similar front-end problems though with very different philosophies, and whether choosing one or the other is merely a matter of personal preference. To compare them, we will build the same application twice, once with Angular and then again with React.'),
 (35, 'December-07-2020 11:31:32', '8 top must-use tools to boost your web development workflow', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'As developers, before we deploy our applications or even before we choose our cloud provider, we should consider which tools we use for our day-to-day internal workflow. The tools included in our toolbox can either boost our productivity dramatically or turn our web development project extremely complex and difficult to maintain or scale up by recruiting more team members.\r\n\r\nA major part of growing ourselves from being junior developers into senior developers involves adaptation of tools that simplifying our task management process, making communication with other team members seamless and building integrations between the tools we use so they work together in harmony to create a perfect stack that works best for you and for your team.'),
@@ -73,7 +72,12 @@ INSERT INTO `admin_panel` (`id`, `datetime`, `title`, `category`, `author`, `ima
 (40, 'December-07-2020 11:38:19', 'Top 7 FREE Artificial Intelligence Courses from the Ivy League Universities', 'Web Development', 'Bob', 'AI.jpg', '                                    These days it feels like every week comes with a new AI course. With such volume, we need to be really selective with our time, energy and focus. A simple but effective strategy is to attend the courses from the best minds in the field.\r\n\r\n    Use your time effectively and attend the courses from the best minds in the field.\r\n\r\nWith the help of my fellow Data Scientists, we curated a list of the top 7 Artificial Intelligence courses from the Ivy League Universities. The course had to be free to be included in the list.\r\n\r\nI haven’t attended all the courses on the list but I got high praise from my colleagues. Next on my course list, I wish to attend is the Reinforcement Learning course.                                '),
 (41, 'December-07-2020 11:37:55', 'Fantasy Football + Artificial Intelligence Cheat Sheet!', 'Artificial Intelligence', 'Bob', 'AI.jpg', 'After hours and days of trial and error (and error and trial again) I feel confident enough to release the culmination of my two previous articles (part 1 & part 2) — a Machine Learning / Artificial Intelligence fantasy football 2017 cheat sheet.\r\n\r\nThe R squared scores were .84 and .78 for the top models run on QB and RB respectively!\r\n\r\nDid I lose you? Read below… and then buy my cheat sheet and let’s try this thing.'),
 (42, 'December-07-2020 13:18:19', 'Web Dev in 2020!', 'Web Development', 'Bob', 'Web_Development.jpg', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services'),
-(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. ');
+(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. '),
+(44, 'December-10-2020 05:51:33', 'test', 'Internet of Things', 'Shreyas', 'download.png', 'test post'),
+(45, 'December-10-2020 05:54:05', 'test post 2', 'Web Development', 'Shreyas', 'd2c_screenshot-[20-11-19].png', 'dare 2 compete'),
+(46, 'December-10-2020 06:05:14', 'TEST POST 3', 'Blockchain', 'Akash', 'd2c_screenshot-[20-12-08].png', 'TEST POST 3 BY AKASH'),
+(47, 'December-10-2020 06:38:02', 'Blockchain test post', 'Blockchain', 'Bob', 'nasa-Q1p7bh3SHj8-unsplash.jpg', '<b>This is a Test Post by </b><i>Bob</i>'),
+(48, 'December-10-2020 14:57:13', 'AI : Elimination of Human Jobs [UPDATED]', 'Artificial Intelligence', 'Aditya', 'markus-winkler-tGBXiHcPKrM-unsplash.jpg', '                                Test Post by <b>Admin</b> - <i>Aditya</i>   [UPDATED]                     ');
 
 -- --------------------------------------------------------
 
@@ -119,7 +123,12 @@ CREATE TABLE `claps` (
 INSERT INTO `claps` (`id`, `datetime`, `clapedby`, `admin_panel_id`) VALUES
 (1, 'December-08-2020 18:42:45', 14, 39),
 (2, 'December-08-2020 19:12:30', 14, 42),
-(3, 'December-08-2020 19:33:31', 15, 28);
+(3, 'December-08-2020 19:33:31', 15, 28),
+(5, 'December-10-2020 05:51:51', 15, 44),
+(6, 'December-10-2020 06:19:28', 13, 46),
+(7, 'December-10-2020 06:35:35', 16, 39),
+(8, 'December-10-2020 06:38:12', 16, 47),
+(9, 'December-10-2020 14:57:50', 14, 48);
 
 -- --------------------------------------------------------
 
@@ -143,11 +152,12 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`id`, `datetime`, `name`, `email`, `comment`, `approvedby`, `status`, `admin_panel_id`) VALUES
-(8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Pooja', 'OFF', 12),
+(8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Aditya', 'ON', 12),
 (9, 'December-07-2020 15:49:30', 'hitesh', 'hitesh@ryt.com', '<b>Bold</b>\r\n<i>Italics</i>', 'Shreyas', 'ON', 29),
 (10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'ON', 41),
 (11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'ON', 42),
-(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40);
+(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40),
+(13, 'December-10-2020 06:38:35', 'Random', 'bob@gmail.com', 'Cool Post!', 'Aditya', 'OFF', 47);
 
 -- --------------------------------------------------------
 
@@ -169,9 +179,10 @@ CREATE TABLE `registration` (
 --
 
 INSERT INTO `registration` (`id`, `datetime`, `addedby`, `username`, `password`, `role`) VALUES
-(13, 'December-08-2020 11:34:12', 'Aditya Kotkar', 'Akash', '$2y$10$q272wNl2sFtu8DESoVqvFOQnUWcajRI4a8obY3U/QATkfm.yBxtR6', 'User'),
+(13, 'December-10-2020 06:17:37', 'Aditya Kotkar', 'Akash', '$2y$10$Iztg1WwnZzK5f4G3HyZFIOFvZ5jd4sHkfuw3.JvM2lyKe6kwE/wXe', 'User'),
 (14, 'December-08-2020 10:41:50', 'Shreyas', 'Aditya', '$2y$10$7ouYYKYgP1rrYg3IUFkzaeDDeiZcJvM6PnYCNmFV11rqpB4Pxm6kC', 'Admin'),
-(15, 'December-08-2020 19:31:32', 'Aditya Kotkar', 'Shreyas', '$2y$10$TYRYwZOlw5w2IgHC2t/fyu73LCHVGyq26yeFCGWYq1fYgFpyRnH5S', 'User');
+(15, 'December-10-2020 05:59:58', 'Aditya Kotkar', 'Shreyas', '$2y$10$4ynrvn0pUFEVnEz.p2Tryezvt9qcX/5NQP4cBHyv2zuITSK6HXit.', 'User'),
+(16, 'December-10-2020 06:36:12', 'Aditya Kotkar', 'Bob', '$2y$10$7bQQ82715MQmmK6e1ZUQsOgSdRPbhxr72d9t0CJchnEedj3irFlF.', 'User');
 
 --
 -- Indexes for dumped tables
@@ -218,31 +229,31 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `admin_panel`
 --
 ALTER TABLE `admin_panel`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `claps`
 --
 ALTER TABLE `claps`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- Constraints for dumped tables
