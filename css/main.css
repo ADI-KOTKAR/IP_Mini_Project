@@ -31,7 +31,7 @@ ul {
   cursor: pointer;
   position: absolute;
   top: 40px;
-  right: 75px;
+  right: 60px;
   z-index: 2;
   display: none;
 }
@@ -69,7 +69,7 @@ ul {
 
 .nav-main ul.main-menu {
   flex: 1;
-  margin-left: 175px;
+  margin-left: 6%;
 }
 .nav-main ul li a {
   padding-bottom: 3px;
@@ -100,9 +100,137 @@ ul {
 .btn:hover {
   opacity: 0.8;
 }
+
+/* Home Body */
+.body-container {
+  display: flex;
+  width: 85%;
+  margin: 20px auto 10px;
+  padding: 20px;
+}
+
+.post-listing {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.post-container {
+  display: flex;
+  /* flex-direction: column; */
+  width: 100%;
+  background-color: #f2f2f2;
+  border-radius: 24px;
+  padding: 20px 10px;
+  margin-bottom: 20px;
+}
+
+.post-container img {
+  max-width: 250px;
+  max-height: 70%;
+  border-radius: 24px;
+  transition: transform 0.2s ease-in-out;
+}
+.post-container img:hover {
+  transform: scale(1.04);
+}
+
+.post-text {
+  padding-left: 20px;
+}
+.first-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-right: 20px;
+  font-weight: bolder;
+}
+.first-line h3 {
+  font-size: 28px;
+}
+
+.first-line a:hover {
+  color: #2ecc71;
+}
+
+.third-line {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.right-panel {
+  position: sticky;
+  top: 0;
+  width: 25%;
+  margin: 0 auto;
+}
+.about-me {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.category-container,
+.recent-posts-container {
+  width: 100%;
+  margin: 30px auto 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.category-container h4,
+.recent-posts-container h4 {
+  color: #fff;
+  background-color: #2ecc71;
+  width: 75%;
+  text-align: center;
+  padding: 15px 20px;
+  border-radius: 24px 24px 0 0;
+}
+.category-content {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  text-align: flex-start;
+  border-radius: 0 0 22px 22px;
+  background-color: #f5f5f5;
+  padding: 5px 20px 10px;
+  line-height: 1.8;
+}
+.recent-posts-content {
+  width: 75%;
+  display: flex;
+  background-color: #f5f5f5;
+  padding-left: 8px;
+}
+.recent-posts-content:last-child {
+  border-radius: 0 0 24px 24px;
+}
+.recent-posts-content img {
+  max-width: 30%;
+  max-height: 85%;
+  margin: auto 0;
+  padding: 8px 4px;
+  border-radius: 12px;
+}
+.recent-post {
+  padding: 2px 10px;
+}
+.recent-post p {
+  font-family: "Sansation";
+  font-weight: bolder;
+}
+.recent-post #time {
+  color: #6f6f6f;
+}
 @media (max-width: 700px) {
   .menu-btn {
     display: block;
+  }
+  .container {
+    width: 95%;
+    margin: 20px auto 5px;
   }
   .nav-main {
     padding: 20px 0;
@@ -119,7 +247,7 @@ ul {
     display: block;
     position: absolute;
     top: 0;
-    left: -40px;
+    left: 30%;
     background: #f2f2f2;
     width: 50%;
     height: 100%;
@@ -144,8 +272,73 @@ ul {
   }
   .nav-main input[type="text"] {
     height: 60%;
-    width: 66%;
+    width: 80%;
     border-radius: 4px;
     padding-left: 5px;
+  }
+  .body-container {
+    display: flex;
+    flex-direction: column;
+    width: 98%;
+    margin: 10px auto;
+  }
+  .post-listing {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .post-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    background-color: #f2f2f2;
+    border-radius: 24px;
+    padding: 20px 10px;
+    margin-bottom: 20px;
+  }
+
+  .post-container img {
+    max-width: 100%;
+    max-height: 70%;
+    border-radius: 24px;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .first-line {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    font-weight: bold;
+  }
+  .first-line h3 {
+    font-size: 18px;
+  }
+
+  /* Right Panel which is down now */
+  .right-panel {
+    width: 98%;
+    margin: 0 auto;
+  }
+  .about-me {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: bolder;
+  }
+
+  .category-container,
+  .recent-posts-container {
+    width: 100%;
+    margin: 30px auto 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .category-container h4,
+  .recent-posts-container h4,
+  .recent-posts-content,
+  .category-content {
+    width: 80%;
   }
 }
