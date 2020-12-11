@@ -21,8 +21,8 @@
             }
             ?>
             <li>
-                <form action="Blog.php" class="">
-                    <input type="text" class="" placeholder="Search" name="Search">
+                <form action="Blog.php" class="" method="post">
+                    <input id="search" type="text" class="" placeholder="Search" name="Search">
                     <!-- <button class="btn" name="SearchButton">Go</button> -->
                 </form>
             </li>

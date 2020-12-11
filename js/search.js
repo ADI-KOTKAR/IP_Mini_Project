@@ -1,6 +1,7 @@
 $(document).ready(function(){
     $("#search").keyup(function(){
         var content = $("#search").val();
+        // console.log(content)
         if(content.length>0){
             $.ajax({
                 type: "POST",

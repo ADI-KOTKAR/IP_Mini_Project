@@ -5,7 +5,13 @@
                 global $ConnectingDB;
                 
                 //Search
-                if(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
+                if (isset($_GET["Category"])){
+                    // echo 'In Categories';
+                    $Category = $_GET["Category"];
+                    $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
+                }
+                elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
+                    // echo 'IN Serch';
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 
@@ -15,12 +21,8 @@
                                     OR author LIKE '%$Search%' 
                                     ORDER BY id desc";
                     
-                } elseif(isset($_POST["Category"])){
-                    //Category
-                    $Category = $_POST["Category"];
-                    $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
-
                 } elseif(isset($_POST["Page"])) {
+                    // echo 'IN Page';
                     //Pagination
                     $Page = $_POST["Page"];
                     $PostsLimit = 5;
@@ -33,6 +35,7 @@
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc LIMIT $ShowPostFrom, $PostsLimit";
 
                 } elseif($_POST["Search"]="everything") {
+                    // echo 'IN Def';
                     //Default
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
                     $CountQuery = "SELECT COUNT(*) FROM admin_panel ORDER BY id desc";
@@ -51,55 +54,68 @@
                     $Image = $DataRows["image"];
                     $Post = $DataRows["post"];
 
+                    if(strlen($DateTime)>11){$DateTime = substr($DateTime,0,11);}
+                    if(strlen($Title)>37){$Title = substr($Title,0,37);}
+
+
             
                 
             echo '
-            <div class="blogpost thumbnail">
-                <img class="img-responsive img-rounded" src="uploads/'.$Image.'" alt="">
-                <div class="caption">
-                    <h1 id="heading">'.$Title.'</h1>
-                    <p class="description">
-                        Category: '.$Category.' | Published on '.$DateTime;
-                    
-                            $ConnectingDB;
-
-                            $QueryApproved = "SELECT COUNT(*) from comments WHERE admin_panel_id='$PostId' AND status='ON' ";
-                            $ExecuteApproved = $Connection->query($QueryApproved);
-
-                            $RowsApproved = $ExecuteApproved->fetch_assoc();
-                            $TotalApproved = array_shift($RowsApproved);
-
-                            if($TotalApproved){
-                        
-            echo'       |     <span class="badge">
-                            Comments: '.$TotalApproved.' 
-                        </span>';
-                        
-                            }
+            <div class="post-container">
+                <img src="./uploads/'.$Image.'" alt="">
+                <div class="post-text">
+                    <div class="first-line">
+                        <h3 class="post-title"><a href="FullPost.php?id='.$PostId.'">'.$Title.'...</a></h3>
+                        <p class="read-time">'.$DateTime.'</p>
+                    </div>
+                    <div class="second-line">
+                        <p class="post-descp">';
+                            if(strlen($Post)>400){$Post = substr($Post,0,400);}
+                            echo $Post;
                             $ConnectingDB;
                             // $UserId = $_SESSION["User_Id"];
                             $CheckClapQuery = "SELECT COUNT(*) FROM claps 
                                                 WHERE admin_panel_id='$PostId' ";
                             $ExecuteClapQuery = $Connection->query($CheckClapQuery);
-                            $ClapsCount = $ExecuteApproved->fetch_assoc();
+                            // $ClapsCount = $ExecuteClapQuery->fetch_assoc();
                             $TotalClaps = $ExecuteClapQuery->fetch_assoc()['COUNT(*)'];
-
-                            if($TotalClaps){
-                    
-            echo'             | <img src="https://img.icons8.com/ios/20/000000/applause.png"/>'.$TotalClaps;
-                    }
-                            
                         
-            echo'        </p>
-                    <p class="post">';
-                            if(strlen($Post)>150){ $Post=substr($Post,0,150).'.....'; }
-                            echo $Post; 
-            echo'        </p>
+                        echo '</p>
+                    </div>
+                    <div class="third-line">
+                        <img src="https://img.icons8.com/ios/25/000000/applause.png" alt=""> ';
+                        if($TotalClaps){
+                            echo ' '.$TotalClaps;
+                        }
+                        else{
+                            echo '  0';
+                        }
+                        $ConnectingDB;
+
+                        $QueryApproved = "SELECT COUNT(*) from comments WHERE admin_panel_id='$PostId' AND status='ON' ";
+                        $ExecuteApproved = $Connection->query($QueryApproved);
+
+                        $RowsApproved = $ExecuteApproved->fetch_assoc();
+                        $TotalApproved = array_shift($RowsApproved);
+
+                        if($TotalApproved){
+                            echo ' | Comments: '.$TotalApproved;
+                        }
+                        else{
+                            echo ' | Comments: 0';
+                        }
+                        echo'
+                    </div>
                 </div>
-                <a href="FullPost.php?id='.$PostId.'">
-                    <span class="btn btn-success">Read More &rsaquo;&rsaquo;</span>
-                </a>
-            </div>';
+            </div>
+            ';
+                            
+                            
+                            
+
+                            
+                            
+
             }
          } else {
             echo "No Matching Results";
