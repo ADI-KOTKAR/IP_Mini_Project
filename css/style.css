@@ -1,0 +1,45 @@
+.container-post h1 {
+  text-align: center;
+  position: relative;
+  margin-top: 1.6em;
+}
+.container-post hr {
+  width: 60%;
+}
+.align-tab {
+  margin: auto;
+}
+textarea {
+  resize: none;
+  background-color: #dcdcdc;
+  border: none;
+  font-size: 1.09em;
+}
+input[type="text"] {
+  border: none;
+  font-size: 0.9em;
+  border-bottom: 1px solid #666666;
+}
+input[type="button"] {
+  border: none;
+  background-color: #2ecc6f;
+  color: #ffffff;
+  padding: 0.7em;
+  border-radius: 40px;
+}
+.post-button button {
+  background-color: #666666;
+  color: #ffffff;
+  padding: 0.7em;
+  width: 8em;
+  border-radius: 45px;
+  align-items: center;
+  border: none;
+  margin-top: 1.2em;
+}
+td {
+  padding: 0.7em;
+  font: 1.1em sans-serif;
+  width: 70px;
+  padding-right: 1em;
+}

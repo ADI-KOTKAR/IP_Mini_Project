@@ -12,7 +12,6 @@
             <li><a href="#">Blogs</a></li>
             <li><a href="#">Events</a></li>
             <li><a href="#">News</a></li>
-            <li><a href="#">Services</a></li>
             <?php
             if(User_Login() || Login()){
                 echo '<li><a href="Logout.php">Logout</a></li>';
