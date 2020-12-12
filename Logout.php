@@ -5,5 +5,5 @@
     $_SESSION["Username"] = null;
     $_SESSION["Role"] = null;
     session_destroy();
-    Redirect_to("Login.php");
+    Redirect_to("Home.php");
 ?>
