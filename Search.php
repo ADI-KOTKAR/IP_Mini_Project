@@ -5,12 +5,12 @@
                 global $ConnectingDB;
                 
                 if (isset($_POST["Category"]) && $_POST["Category"]!="all"){
-                    echo 'Categories: <mark><b>'.$_POST['Category'].'</b></mark>';
+                    echo 'Search for: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Category'].'</b></button>';
                     $Category = $_POST["Category"];
                     $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
                 }
                 elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
-                    // echo 'IN Serch';
+                    echo 'Categories: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Search'].'</b></button>';
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 
@@ -34,7 +34,7 @@
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc LIMIT $ShowPostFrom, $PostsLimit";
 
                 } elseif($_POST["Search"]="everything" || $_POST["Category"]="all") {
-                    echo 'Categories: <mark><b>All</b></mark>';
+                    echo 'Categories: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a, #a8eb12); padding:8px; border-radius:14px; color:white; border:none; margin-bottom:10px"><b>All</b></button>';
                     //Default
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
                     $CountQuery = "SELECT COUNT(*) FROM admin_panel ORDER BY id desc";

@@ -84,6 +84,7 @@
                 if(isset($_GET["Type"])){
                     //Types
                     // echo "in types";
+                    echo 'Type: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163);; padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_GET['Type'].'</b></button>';
                     $SearchType = $_GET["Type"]." ";
                     foreach($eventsData as $event)
                     {
@@ -94,6 +95,7 @@
                     }
                 } elseif(isset($_GET["Domain"])) {
                     //Domain
+                    echo 'Domain: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163);; padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_GET['Domain'].'</b></button>';
                     $SearchDomain = $_GET["Domain"].' ';
                     foreach($eventsData as $event){
                         if($event->doamin1 == $SearchDomain || $event->domain2 == $SearchDomain)

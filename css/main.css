@@ -236,7 +236,7 @@ ul {
 .category-container h4,
 .recent-posts-container h4 {
   color: #fff;
-  background-color: #2ecc71;
+  background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a);
   width: 90%;
   text-align: center;
   padding: 15px 20px;
@@ -297,8 +297,8 @@ ul {
 .btn-select {
   color: #fff;
   padding: 10px 20px;
-  background-color: #2ecc71;
-  border-color: #2ecc71;
+  background-image: linear-gradient(to right top, #2ec771, #4dd163);
+  border-color: none;
   box-shadow: none;
   border-radius: 24px;
 }

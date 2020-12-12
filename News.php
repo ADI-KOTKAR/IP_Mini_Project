@@ -84,11 +84,13 @@
 
                 if(isset($_GET["Category"])){
                     //Category
+                    echo 'Category: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163);; padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_GET['Category'].'</b></button>';
                     $SearchCategory = $_GET["Category"];
                     $url = "http://newsapi.org/v2/everything?q=".$SearchCategory."&sources=techcrunch&language=en&apiKey=".$NEWS_API_KEY;
                     $url = preg_replace("/ /", "%20", $url);
                 } else {
                     //Defualt
+                    echo '<button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163);; padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>Headlines</b></button>';
                     $url = "https://newsapi.org/v2/everything?domains=techcrunch.com,thenextweb.com&language=en&apiKey=".$NEWS_API_KEY;
                 }
 
