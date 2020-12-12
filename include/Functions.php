@@ -39,21 +39,21 @@
         }
     }
 
-    function User_Login(){
-        if(isset($_SESSION["User_Id"]) && $_SESSION["Role"] == "User"){
-            return true;
+        function User_Login(){
+            if(isset($_SESSION["User_Id"]) && $_SESSION["Role"] == "User"){
+                return true;
+            }
         }
-    }
 
-    function Confirm_User_Login(){
-        if(!User_Login()){
-            $_SESSION["ErrorMessage"] = "Login Required";
-            $_SESSION["User_Id"] = null;
-            $_SESSION["Username"] = null;
-            $_SESSION["Role"] = null;
-            // session_destroy();
-            Redirect_to("Login.php");
+        function Confirm_User_Login(){
+            if(!User_Login()){
+                $_SESSION["ErrorMessage"] = "Login Required";
+                $_SESSION["User_Id"] = null;
+                $_SESSION["Username"] = null;
+                $_SESSION["Role"] = null;
+                // session_destroy();
+                Redirect_to("Login.php");
+            }
         }
-    }
 
 ?>

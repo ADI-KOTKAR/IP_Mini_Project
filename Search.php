@@ -11,6 +11,7 @@
                 }
                 elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
                     echo 'IN Serch';
+                    echo $_POST['Search'];
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 

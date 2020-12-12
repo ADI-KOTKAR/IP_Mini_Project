@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2020 at 10:19 AM
+-- Generation Time: Dec 12, 2020 at 03:35 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -147,8 +147,9 @@ INSERT INTO `comments` (`id`, `datetime`, `name`, `email`, `comment`, `approvedb
 (8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Aditya', 'ON', 12),
 (9, 'December-07-2020 15:49:30', 'hitesh', 'hitesh@ryt.com', '<b>Bold</b>\r\n<i>Italics</i>', 'Shreyas', 'ON', 29),
 (10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'OFF', 41),
-(11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'ON', 42),
-(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40);
+(11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'OFF', 42),
+(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40),
+(15, 'December-12-2020 19:19:32', 'RandomGuy 2.0', 'rdguy@234', 'I just love FPL!', 'Aditya', 'ON', 41);
 
 -- --------------------------------------------------------
 
@@ -173,7 +174,8 @@ INSERT INTO `registration` (`id`, `datetime`, `addedby`, `username`, `password`,
 (13, 'December-10-2020 06:17:37', 'Aditya Kotkar', 'Akash', '$2y$10$Iztg1WwnZzK5f4G3HyZFIOFvZ5jd4sHkfuw3.JvM2lyKe6kwE/wXe', 'User'),
 (14, 'December-08-2020 10:41:50', 'Shreyas', 'Aditya', '$2y$10$7ouYYKYgP1rrYg3IUFkzaeDDeiZcJvM6PnYCNmFV11rqpB4Pxm6kC', 'Admin'),
 (15, 'December-10-2020 05:59:58', 'Aditya Kotkar', 'Shreyas', '$2y$10$4ynrvn0pUFEVnEz.p2Tryezvt9qcX/5NQP4cBHyv2zuITSK6HXit.', 'User'),
-(16, 'December-10-2020 06:36:12', 'Aditya Kotkar', 'Bob', '$2y$10$7bQQ82715MQmmK6e1ZUQsOgSdRPbhxr72d9t0CJchnEedj3irFlF.', 'User');
+(16, 'December-10-2020 06:36:12', 'Aditya Kotkar', 'Bob', '$2y$10$7bQQ82715MQmmK6e1ZUQsOgSdRPbhxr72d9t0CJchnEedj3irFlF.', 'User'),
+(18, 'December-12-2020 18:44:55', 'Aditya Kotkar', 'Praveen', '$2y$10$u7CVePZoi7q1aGthbDI5SO/w/bFL4uMZcHCjbdgDQtEHBkB0Of6XW', 'User');
 
 --
 -- Indexes for dumped tables
@@ -238,13 +240,13 @@ ALTER TABLE `claps`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- Constraints for dumped tables
