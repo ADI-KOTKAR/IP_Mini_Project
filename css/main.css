@@ -344,6 +344,20 @@ ul {
   font-size: 18px;
   font-weight: bold;
 }
+.show-comments {
+  background-color: #f1f1f1;
+  padding: 10px 25px 10px;
+  border-radius: 16px;
+  margin-bottom: 10px;
+}
+.show-comments h4 {
+  font-weight: normal;
+}
+
+.show-comments #commentor {
+  font-size: 20px;
+  font-weight: bolder;
+}
 
 .comments form {
   display: flex;
@@ -497,5 +511,9 @@ ul {
   .post-main-body .post-img {
     max-width: 100%;
     margin-bottom: 20px;
+  }
+  .comments form input[type="text"],
+  .comments form textarea {
+    width: 100%;
   }
 }

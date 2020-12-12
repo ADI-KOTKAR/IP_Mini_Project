@@ -180,6 +180,30 @@
                 <?php } ?>
             <!-- Comments -->
             <div class="comments">
+            <h2>Comments:</h2>
+
+            <?php
+                $ConnectingDB;
+                $PostIdForComments = $_GET["id"];
+                $ExtractingCommentsQuery = "SELECT * FROM comments WHERE admin_panel_id='$PostIdForComments'
+                                                AND status='ON' ";
+                $Execute = $Connection->query($ExtractingCommentsQuery);
+
+                while($DataRows = $Execute->fetch_assoc()){
+                    $CommentDate = $DataRows["datetime"];
+                    $CommenterName = $DataRows["name"];
+                    $Comments = $DataRows["comment"];
+                
+            ?>
+
+                <div class="show-comments">
+                    <h4>By : <span id="commentor"><?php echo $CommenterName; ?></span> </h4>
+                    <p><?php echo $CommentDate; ?></p>
+                    <p style="color: black; margin-bottom: 20px;"><?php echo nl2br($Comments); ?></p>
+                </div>
+            <?php } ?>
+
+                <hr>
                 <p>Share your Thoughts about the post</p>
                 <p>Comments</p>
                 <form action="FullPost.php?id=<?php echo $PostId;?>" method="post" enctype="multipart/form-data">
