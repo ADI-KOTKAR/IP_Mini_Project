@@ -50,15 +50,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Bootstrap 3 -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script src="js/jquery-3.5.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <!--  -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechVents | Register</title>
-    <link rel="stylesheet" href="css/adminStyles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <style>
@@ -73,84 +68,169 @@
 </style>
 
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-inverse" role="navigation" style="background:#ffffff; border:0; margin:0">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" style="background:black;" data-toggle="collapse" data-target="#collapse">
-                <span class="sr-only">Toggle Navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="Blog.php">
-                <img src="images/Techvents-text-removebg-preview.png" width=150 height=35 alt="" style="">
-            </a>
-        </div>
-        <div class="collapse navbar-collapse" id="collapse">
+
+            <center>
+                <div class="mid">
+                <?php echo Message(); echo SuccessMessage(); ?> 
+                    <img class="Logo" src="images/icons8-bluestacks-75.png" alt="">
+                    <form action="Signup.php" method="post">
+                        <center>
+                            <h1>SIGNUP</h1>
+                            <input type="text" name="Username" size="30" placeholder="Name" />
+                            <br>
+                            <input type="password" name="Password" size="30" placeholder="Password" />
+                            <br>
+                            <input type="password" name="ConfirmPassword" size="30" placeholder="Confirm Password" />
+                            <br>
+                            <input class="b" type="submit" name="Submit" value="Register" />
+                        </center>
+                    </form>
+                </div>
+            </center>
             
-        </div>
-    </div>
-    <br>
-</nav>
-
-<!-- Ending of Navbar -->
-
-
-<!-- Main Container -->
-<div class="container-fluid">
-
-    <!--Row-->
-    <div class="row">
-
-        <!-- Main area -->
-        <div class="col-sm-4 col-sm-offset-4" style="background:#ffffff;">
-        <br><br><br><br>
-            <h2>Welcome To TechVents</h2>
-            <?php 
-                echo Message(); echo SuccessMessage();
-            ?> 
-            <div>
-                <form action="Signup.php" method="post">
-                    <fieldset>
-                        <div class="form-group">
-                            <label for="username"><span class="FieldInfo">Username:</span></label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
-                                <input class="form-control " type="text" name="Username" id="username" placeholder="Username"><br>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><span class="FieldInfo">Password:</span></label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                <input class="form-control " type="password" name="Password" id="password" placeholder="Password"><br>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="password"><span class="FieldInfo">Confirm Password:</span></label>
-                            <div class="input-group input-group-lg">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                                <input class="form-control " type="password" name="ConfirmPassword" id="confirmpassword" placeholder="Confirm Password"><br>
-                            </div>
-                        </div>
-                        <input class="btn btn-success btn-block" type="Submit" name="Submit" value="Register"><br>
-                    </fieldset>
-                </form>
-            </div>
-            
-            </div>
-        </div>
-        <!-- Ending of Main area -->
-
-    </div>
-    <!-- Ending of row -->
-
-</div>
-<!-- Ending of Container -->
-
 
 
 </body>
 </html>
 
+<style>
+        *{
+            margin: 0;
+        }
+        .leftt{
+            background-color:white;
+            display: flex;
+            float: left;
+            width: 10%;
+            height: 100vh;
+            }
+        .rightt{
+            background-color:white;
+            display: flex;
+            float: right;
+            width: 10%;
+            height: 100vh;
+            }
+        .topp{
+            background-color:white;
+            display: flex;
+            justify-content: center;
+            width: 80%;
+            height: 5vh;
+            }
+        input{
+            width:300px;
+            height: 40px;
+            border-radius: 35px;
+            border: none;
+            background-color: #F2F2F2;
+            text-indent: 17px;
+            font-family: Montserrat;
+            font-size: 15px;
+            margin: 7px;
+            outline: none;
+        }
+        h1{
+            font-family: Montserrat;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 23px;
+            line-height: 121.4%;
+            color: #666666;
+            padding-bottom: 15px;
+            letter-spacing: 6px;
+        }
+        .b{
+            background-color: #2ECC71;
+            color: white;
+            width:120px;
+            text-align: center;
+            text-indent: 0;
+            font-family: Montserrat;
+            font-weight: 600;
+            font-size: 16px;
+            margin-top: 20px;
+            height:40px;
+        }
+        .b:hover{
+            background-color: #29b765;
+        }
+        .Logo{
+            margin-top: 140px;
+            height:90px;
+            width: 90px;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 1000px){
+            input{
+                width:285px;
+                height: 40px;
+            }
+            .Logo{
+                width:100px;
+                height:100px;
+            }
+            .b{
+                width: 120px;
+                height: 40px;
+            }
+            h1{
+                font-size: 23px;
+                letter-spacing: 6px;
+            }
+        }
+        @media (max-width: 800px){
+            input{
+                width:200px;
+                height: 35px;
+            }
+            .Logo{
+                width:80px;
+                height:80px;
+            }
+            .b{
+                width: 100px;
+                height: 25px;
+            }
+            h1{
+                font-size: 20px;
+                letter-spacing: 5px;
+            }
+        }
+        @media (max-width: 500px){
+            input{
+                width:150px;
+                height:30px;
+            }
+            .Logo{
+                width:60px;
+                height:60px;
+            }
+            .b{
+                width: 80px;
+                height: 20px;
+            }
+            h1{
+                font-size: 17px;
+                letter-spacing: 4px;
+            }
+        }
+        @media (max-width: 300px){
+            input{
+                width:100px;
+                height: 25px;
+            }
+            .Logo{
+                width:50px;
+                height:50px;
+            }
+            .b{
+                width: 60px;
+                height: 15px;
+                font-size: 10px;
+            }
+            h1{
+                font-size: 14px;
+                letter-spacing: 3px;
+            }
+    </style>

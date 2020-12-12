@@ -39,7 +39,7 @@
             </button>
             <?php } ?>
         </a>
-        <a href="Blog.php" target="_blank"><i class="fab fa-slack"></i> Live Blog</a>
+        <a href="Blog.php"><i class="fab fa-slack"></i> Live Blog</a>
         <a href="Logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 </div>
@@ -97,7 +97,7 @@
                 </td>
                 <td>
                   <button class="live_preview">
-                    <a href="FullPost.php?id=<?php echo $CommentedPostId; ?>" target="_blank">Live Preview</a>
+                    <a href="FullPost.php?id=<?php echo $CommentedPostId; ?>">Live Preview</a>
                   </button>
                 </td>
             </tr>
@@ -156,7 +156,7 @@
                 </td>
                 <td>
                   <button class="live_preview">
-                    <a href="FullPost.php?id=<?php echo $CommentedPostId; ?>" target="_blank">Live Preview</a>
+                    <a href="FullPost.php?id=<?php echo $CommentedPostId; ?>">Live Preview</a>
                   </button>
                 </td>
             </tr>

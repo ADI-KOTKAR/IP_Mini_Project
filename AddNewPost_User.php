@@ -59,7 +59,7 @@
         <a href="ChangePassword.php"><i class="fas fa-key"></i> Change Password</a>
         <a href="Applause_User.php"><i class="fas fa-sign-language"></i> Applauded Posts</a>
         <a href="Blog.php"><i class="fab fa-slack"></i> Live Blog</a>
-        <a href="Logout.php" target="_blank"><i class="fas fa-sign-out-alt"></i> Logout</a>
+        <a href="Logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 </div>
 

@@ -117,7 +117,7 @@
                     <?php } ?>
                 </td>
                 <td>
-                    <a href="FullPost.php?id=<?php echo $Id; ?>" target="_blank"><button class="live_preview"> Live Preview</button></a>
+                    <a href="FullPost.php?id=<?php echo $Id; ?>" ><button class="live_preview"> Live Preview</button></a>
                 </td>
             </tr>
             <?php } ?>

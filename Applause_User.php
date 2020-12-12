@@ -19,7 +19,7 @@
         <a href="AddNewPost_User.php"><i class="fas fa-list-alt"></i> Add New Post</a>
         <a href="ChangePassword.php"><i class="fas fa-key"></i> Change Password</a>
         <a class="active" href="Applause_User.php"><i class="fas fa-sign-language"></i> Applauded Posts</a>
-        <a href="Blog.php" target="_blank"><i class="fab fa-slack"></i> Live Blog</a>
+        <a href="Blog.php"><i class="fab fa-slack"></i> Live Blog</a>
         <a href="Logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 </div>
@@ -89,7 +89,7 @@
                     <img src="uploads/<?php echo $Image; ?>" alt="" class="banner_image">
                 </td>
                 <td>
-                    <a href="FullPost.php?id=<?php echo $Id; ?>" target="_blank"><button class="live_preview"> Live Preview</button></a>
+                    <a href="FullPost.php?id=<?php echo $Id; ?>"><button class="live_preview"> Live Preview</button></a>
                 </td>
             </tr>
             <?php } ?>
