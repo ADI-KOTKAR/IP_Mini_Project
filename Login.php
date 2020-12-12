@@ -154,16 +154,16 @@
         }
         @media (max-width: 800px){
             input{
-                width:200px;
-                height: 35px;
+                width:805;
+                height: 40px;
             }
             .Logo{
                 width:80px;
                 height:80px;
             }
             .b{
-                width: 100px;
-                height: 25px;
+                width: 30%;
+                height: 40px;
             }
             h1{
                 font-size: 20px;
@@ -172,16 +172,16 @@
         }
         @media (max-width: 500px){
             input{
-                width:150px;
-                height:30px;
+                width:80%;
+                height:35px;
             }
             .Logo{
                 width:60px;
                 height:60px;
             }
             .b{
-                width: 80px;
-                height: 20px;
+                width: 30%;
+                height: 35px;
             }
             h1{
                 font-size: 17px;
@@ -190,7 +190,7 @@
         }
         @media (max-width: 300px){
             input{
-                width:100px;
+                width:80%;
                 height: 25px;
             }
             .Logo{
@@ -198,8 +198,8 @@
                 height:50px;
             }
             .b{
-                width: 60px;
-                height: 15px;
+                width: 30%;
+                height: 25px;
                 font-size: 10px;
             }
             h1{
