@@ -17,8 +17,12 @@ body {
   border-radius: 15px;
   border: none;
 }
+button.category {
+  margin: 4px 2px;
+}
 .category:hover {
   color: #8c8c8c;
+  margin-left: 8px;
 }
 
 a {
@@ -142,6 +146,12 @@ ul {
   border-radius: 24px;
   transition: transform 0.2s ease-in-out;
 }
+#events .post-container img {
+  max-width: 250px;
+  max-height: 150px;
+  border-radius: 24px;
+  transition: transform 0.2s ease-in-out;
+}
 .post-container img:hover {
   transform: scale(1.04);
 }
@@ -156,18 +166,43 @@ ul {
   padding-right: 20px;
   font-weight: bolder;
 }
+#events .first-line {
+  padding-right: 0;
+}
+#events .read-time {
+  right: 0;
+}
 .first-line h3 {
   font-size: 28px;
+}
+#events .first-line h3 {
+  font-size: 22px;
 }
 
 .first-line a:hover {
   color: #2ecc71;
 }
 
+.second-line h6 {
+  margin: 10px 8px;
+  font-size: 22px;
+  font-weight: lighter;
+}
+
+.second-line .btn-select {
+  padding: 5px 10px;
+  margin-right: 5px;
+  font-size: 16px;
+}
+
 .third-line {
   display: flex;
   justify-content: flex-end;
   padding-right: 20px;
+}
+#events .third-line {
+  display: flex;
+  justify-content: flex-start;
 }
 .third-line img {
   transform: rotateZ(25deg);
@@ -419,9 +454,9 @@ ul {
     display: block;
     position: absolute;
     top: 0;
-    left: 30%;
+    left: 15%;
     background: #f2f2f2;
-    width: 50%;
+    width: 60%;
     height: 100%;
     border-right: #ccc 1px solid;
     opacity: 0.95;
@@ -443,8 +478,9 @@ ul {
     border-bottom: 0;
   }
   .nav-main input[type="text"] {
-    height: 60%;
+    height: 5%;
     width: 100%;
+    margin-left: 0;
   }
   .body-container {
     display: flex;
@@ -481,8 +517,27 @@ ul {
     margin-top: 10px;
     font-weight: bold;
   }
+  #events .first-line {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin: 10px 0;
+    font-weight: bold;
+  }
   .first-line h3 {
     font-size: 18px;
+  }
+  #events .first-line h3 {
+    font-size: 20px;
+  }
+  #events .first-line .read-time {
+    float: left;
+    margin: 10px 0 7px -40%;
+  }
+  .second-line .btn-select {
+    padding: 4px 7px;
+    margin-right: 3px;
+    font-size: 0.8rem;
   }
 
   /* Right Panel which is down now */
