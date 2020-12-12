@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 10, 2020 at 11:10 AM
+-- Generation Time: Dec 12, 2020 at 10:19 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -72,12 +72,7 @@ INSERT INTO `admin_panel` (`id`, `datetime`, `title`, `category`, `author`, `ima
 (40, 'December-07-2020 11:38:19', 'Top 7 FREE Artificial Intelligence Courses from the Ivy League Universities', 'Web Development', 'Bob', 'AI.jpg', '                                    These days it feels like every week comes with a new AI course. With such volume, we need to be really selective with our time, energy and focus. A simple but effective strategy is to attend the courses from the best minds in the field.\r\n\r\n    Use your time effectively and attend the courses from the best minds in the field.\r\n\r\nWith the help of my fellow Data Scientists, we curated a list of the top 7 Artificial Intelligence courses from the Ivy League Universities. The course had to be free to be included in the list.\r\n\r\nI haven’t attended all the courses on the list but I got high praise from my colleagues. Next on my course list, I wish to attend is the Reinforcement Learning course.                                '),
 (41, 'December-07-2020 11:37:55', 'Fantasy Football + Artificial Intelligence Cheat Sheet!', 'Artificial Intelligence', 'Bob', 'AI.jpg', 'After hours and days of trial and error (and error and trial again) I feel confident enough to release the culmination of my two previous articles (part 1 & part 2) — a Machine Learning / Artificial Intelligence fantasy football 2017 cheat sheet.\r\n\r\nThe R squared scores were .84 and .78 for the top models run on QB and RB respectively!\r\n\r\nDid I lose you? Read below… and then buy my cheat sheet and let’s try this thing.'),
 (42, 'December-07-2020 13:18:19', 'Web Dev in 2020!', 'Web Development', 'Bob', 'Web_Development.jpg', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services'),
-(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. '),
-(44, 'December-10-2020 05:51:33', 'test', 'Internet of Things', 'Shreyas', 'download.png', 'test post'),
-(45, 'December-10-2020 05:54:05', 'test post 2', 'Web Development', 'Shreyas', 'd2c_screenshot-[20-11-19].png', 'dare 2 compete'),
-(46, 'December-10-2020 06:05:14', 'TEST POST 3', 'Blockchain', 'Akash', 'd2c_screenshot-[20-12-08].png', 'TEST POST 3 BY AKASH'),
-(47, 'December-10-2020 06:38:02', 'Blockchain test post', 'Blockchain', 'Bob', 'nasa-Q1p7bh3SHj8-unsplash.jpg', '<b>This is a Test Post by </b><i>Bob</i>'),
-(48, 'December-10-2020 14:57:13', 'AI : Elimination of Human Jobs [UPDATED]', 'Artificial Intelligence', 'Aditya', 'markus-winkler-tGBXiHcPKrM-unsplash.jpg', '                                Test Post by <b>Admin</b> - <i>Aditya</i>   [UPDATED]                     ');
+(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. ');
 
 -- --------------------------------------------------------
 
@@ -124,11 +119,8 @@ INSERT INTO `claps` (`id`, `datetime`, `clapedby`, `admin_panel_id`) VALUES
 (1, 'December-08-2020 18:42:45', 14, 39),
 (2, 'December-08-2020 19:12:30', 14, 42),
 (3, 'December-08-2020 19:33:31', 15, 28),
-(5, 'December-10-2020 05:51:51', 15, 44),
-(6, 'December-10-2020 06:19:28', 13, 46),
 (7, 'December-10-2020 06:35:35', 16, 39),
-(8, 'December-10-2020 06:38:12', 16, 47),
-(9, 'December-10-2020 14:57:50', 14, 48);
+(10, 'December-12-2020 13:59:33', 14, 43);
 
 -- --------------------------------------------------------
 
@@ -154,10 +146,9 @@ CREATE TABLE `comments` (
 INSERT INTO `comments` (`id`, `datetime`, `name`, `email`, `comment`, `approvedby`, `status`, `admin_panel_id`) VALUES
 (8, 'December-07-2020 15:47:00', 'arnold', 'alp@yahoo.com', 'Great Image!!\r\nWith Great stuff.', 'Aditya', 'ON', 12),
 (9, 'December-07-2020 15:49:30', 'hitesh', 'hitesh@ryt.com', '<b>Bold</b>\r\n<i>Italics</i>', 'Shreyas', 'ON', 29),
-(10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'ON', 41),
+(10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'OFF', 41),
 (11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'ON', 42),
-(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40),
-(13, 'December-10-2020 06:38:35', 'Random', 'bob@gmail.com', 'Cool Post!', 'Aditya', 'OFF', 47);
+(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40);
 
 -- --------------------------------------------------------
 
@@ -241,7 +232,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `claps`
 --
 ALTER TABLE `claps`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `comments`

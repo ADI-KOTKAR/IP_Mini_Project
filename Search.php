@@ -4,14 +4,13 @@
 <?php 
                 global $ConnectingDB;
                 
-                //Search
-                if (isset($_GET["Category"])){
-                    // echo 'In Categories';
-                    $Category = $_GET["Category"];
+                if (isset($_POST["Category"]) && $_POST["Category"]!="all"){
+                    echo 'Categories: <mark><b>'.$_POST['Category'].'</b></mark>';
+                    $Category = $_POST["Category"];
                     $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
                 }
                 elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
-                    // echo 'IN Serch';
+                    echo 'IN Serch';
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 
@@ -22,7 +21,7 @@
                                     ORDER BY id desc";
                     
                 } elseif(isset($_POST["Page"])) {
-                    // echo 'IN Page';
+                    echo 'IN Page';
                     //Pagination
                     $Page = $_POST["Page"];
                     $PostsLimit = 5;
@@ -34,8 +33,8 @@
                     }
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc LIMIT $ShowPostFrom, $PostsLimit";
 
-                } elseif($_POST["Search"]="everything") {
-                    // echo 'IN Def';
+                } elseif($_POST["Search"]="everything" || $_POST["Category"]="all") {
+                    echo 'Categories: <mark><b>All</b></mark>';
                     //Default
                     $ViewQuery = "SELECT * FROM admin_panel ORDER BY id desc";
                     $CountQuery = "SELECT COUNT(*) FROM admin_panel ORDER BY id desc";
@@ -55,7 +54,7 @@
                     $Post = $DataRows["post"];
 
                     if(strlen($DateTime)>11){$DateTime = substr($DateTime,0,11);}
-                    if(strlen($Title)>37){$Title = substr($Title,0,37);}
+                    if(strlen($Title)>28){$Title = substr($Title,0,28).'..' ;}
 
 
             
@@ -65,7 +64,7 @@
                 <img src="./uploads/'.$Image.'" alt="">
                 <div class="post-text">
                     <div class="first-line">
-                        <h3 class="post-title"><a href="FullPost.php?id='.$PostId.'">'.$Title.'...</a></h3>
+                        <h3 class="post-title"><a href="FullPost.php?id='.$PostId.'">'.$Title.'</a></h3>
                         <p class="read-time">'.$DateTime.'</p>
                     </div>
                     <div class="second-line">

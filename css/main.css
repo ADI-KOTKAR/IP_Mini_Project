@@ -13,6 +13,14 @@ body {
   line-height: 1.5;
 }
 
+.category {
+  border-radius: 15px;
+  border: none;
+}
+.category:hover {
+  color: #8c8c8c;
+}
+
 a {
   color: #262626;
   text-decoration: none;
@@ -49,7 +57,7 @@ ul {
   justify-content: space-between;
   height: 60px;
   padding: 20px 0;
-  font-size: 20px;
+  font-size: 17px;
   font-weight: bolder;
   margin-bottom: 10px;
 }

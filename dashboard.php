@@ -40,7 +40,7 @@
             </button>
             <?php } ?>
         </a>
-        <a href="Blog.php" target="_blank"><i class="fab fa-slack"></i> Live Blog</a>
+        <a href="Blog.php"><i class="fab fa-slack"></i> Live Blog</a>
         <a href="Logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 </div>

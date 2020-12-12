@@ -40,11 +40,10 @@
 </script>
 <body>
     <?php include("base.php"); ?>
-    <?php
-    echo Message(); echo SuccessMessage();
-?>
+  
     <div class="body-container">
-        <div class="post-listing">
+    <div class="post-listing">
+    <?php echo Message(); echo SuccessMessage(); ?>
 <div class="" id="display"></div>
 
         <!-- For loop idhar aayega -->
@@ -80,6 +79,9 @@
             <div class="category-container">
                 <h4>Categories</h4>
                 <div class="category-content">
+                <span>
+                        <button type="submit" class="category" value="all">All</button>
+                    </span>
                 <?php
                         $ConnectingDB;
                         $ViewQuery = "SELECT * FROM category ORDER BY datetime desc";
@@ -90,9 +92,12 @@
                             $Category = $DataRows['name'];
                     ?>
                     <span>
-                        <a href="Blog.php?Category=<?php echo $Category; ?>"><?php echo $Category; ?></a>
+                        <button type="submit" class="category" id="<?php echo $Category; ?>">
+                            <?php echo $Category; ?>
+                        </button>
                     </span>
                     <?php } ?>
+                    
                 </div>
             </div>
             <!-- Recent Posts -->
