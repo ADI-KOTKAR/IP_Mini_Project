@@ -39,7 +39,7 @@
 <div class="menu-btn">
         <i class="fas fa-bars fa-2x"></i>
 </div>
-<div class="container">
+<div class="container" id="news">
     <!-- NavBar -->
     <nav class="nav-main">
         <img src="images/icons8-bluestacks-240.png" alt="Techvents Logo" class="logo">
@@ -58,7 +58,7 @@
             }
             ?>
             
-            
+            <li></li>
         </ul>
 
         <ul class="right-menu">
@@ -112,13 +112,12 @@
                         <p class="read-time"><?php echo $col->publishedAt;?></p>
                     </div>
                     <div class="third-line">
-
                         <h4> <?php echo $col->source->name;?></h4>
                     </div>
                     <div class="second-line">
-                    <h6>
-                    <?php echo $col->description; ?>
-                    </h6>
+                    <p>
+                        <?php echo $col->description; ?>
+                    </p>
                     </div>
                     
                 </div>

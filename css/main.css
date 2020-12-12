@@ -464,6 +464,11 @@ ul {
     transform: translateX(-500px);
     transition: transform 0.5s ease-in-out;
   }
+  #news .nav-main ul.main-menu,
+  #events .nav-main ul.main-menu {
+    left: 5%;
+    width: 60%;
+  }
   .nav-main ul.main-menu.show {
     transform: translateX(-150px);
   }

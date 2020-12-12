@@ -39,9 +39,9 @@
 <div class="menu-btn">
         <i class="fas fa-bars fa-2x"></i>
 </div>
-<div class="container">
+<div class="container"id="events">
     <!-- NavBar -->
-    <nav class="nav-main">
+    <nav class="nav-main" >
         <img src="images/icons8-bluestacks-240.png" alt="Techvents Logo" class="logo">
         <img src="images/Techvents-text-removebg-preview.png" alt="Techvents Logo" class="logo-text">
 
