@@ -23,9 +23,10 @@ ul {
 }
 
 .container {
-  width: 84%;
+  width: 85%;
   max-width: 1100px;
   margin: 20px auto 5px;
+  border-bottom: 1px solid black;
 }
 
 .menu-btn {
@@ -48,7 +49,6 @@ ul {
   justify-content: space-between;
   height: 60px;
   padding: 20px 0;
-  font-family: "Sansation";
   font-size: 20px;
   font-weight: bolder;
   margin-bottom: 10px;
@@ -66,11 +66,12 @@ ul {
 .nav-main ul {
   display: flex;
   padding: 10px 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .nav-main ul.main-menu {
   flex: 1;
-  margin-left: 6%;
+  margin-left: 24%;
 }
 .nav-main ul li a {
   padding-bottom: 3px;
@@ -86,6 +87,8 @@ ul {
   height: 80%;
   border-radius: 12px;
   padding: 8px 5px 8px 15px;
+  margin-left: 45px;
+  border: 1px solid black;
 }
 
 .btn {
@@ -105,7 +108,7 @@ ul {
 /* Home Body */
 .body-container {
   display: flex;
-  width: 85%;
+  width: 76%;
   margin: 20px auto 10px;
   padding: 20px;
 }

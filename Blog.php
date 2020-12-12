@@ -62,8 +62,17 @@
                 <img src="https://img.icons8.com/ios-filled/150/000000/user-male-circle.png" alt="user-img"/>
                 <p><b><?php echo $_SESSION["Username"] ?></b></p>
                 <hr>
-                <p><a href="dashboard_user.php"> My Dashboard </a></p>
-                <p><a href="AddPost.php"> Write a Post </a></p>
+                <?php
+                if($_SESSION['Role']=="User"){
+                    echo '<p><a href="dashboard_user.php"> My Dashboard </a></p>';
+                    echo '<p><a href="AddNewPost_User.php"> Write a Post </a></p>';
+                }
+                if($_SESSION['Role']=="Admin"){
+                    echo '<p><a href="dashboard.php"> My Dashboard </a></p>';
+                    echo '<p><a href="AddNewPost.php"> Write a Post </a></p>';
+                }
+                ?>
+                
             <?php } 
             ?>
             </div>

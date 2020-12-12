@@ -9,9 +9,9 @@
         <img src="images/Techvents-text-removebg-preview.png" alt="Techvents Logo" class="logo-text">
 
         <ul class="main-menu">
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">Events</a></li>
-            <li><a href="#">News</a></li>
+            <li><a href="Blog.php">Blogs</a></li>
+            <li><a href="Events.php">Events</a></li>
+            <li><a href="News.php">News</a></li>
             <?php
             if(User_Login() || Login()){
                 echo '<li><a href="Logout.php">Logout</a></li>';
@@ -34,7 +34,7 @@
             
         </ul>
     </nav>
-    <hr>
+    
 </div>
 
 <script>
