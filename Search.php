@@ -10,8 +10,7 @@
                     $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
                 }
                 elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
-                    echo 'IN Serch';
-                    echo $_POST['Search'];
+                    // echo 'IN Serch';
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 
@@ -22,7 +21,7 @@
                                     ORDER BY id desc";
                     
                 } elseif(isset($_POST["Page"])) {
-                    echo 'IN Page';
+                    // echo 'IN Page';
                     //Pagination
                     $Page = $_POST["Page"];
                     $PostsLimit = 5;
