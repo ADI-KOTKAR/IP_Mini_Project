@@ -105,11 +105,21 @@
                 <div class="post-text" id="events">
                     <div class="first-line">
                         <h3 class="post-title">
+                        <?php 
+                        $Title;
+                        if(strlen($col->title)>50){$Title = substr($col->title,0,50);}
+                        else{$Title = $col->title;}
+                        ?>
                             <a target="_blank" href="<?php echo $col->url?>">
-                                <?php echo $col->title?>
+                                <?php echo $Title?>...
                             </a>
                         </h3>
-                        <p class="read-time"><?php echo $col->publishedAt;?></p>
+                        <?php 
+                        $datePublished;
+                        if(strlen($col->publishedAt)>11){$datePublished = substr($col->publishedAt,0,11);}
+                        else{$datePublished = $col->publishedAt;}
+                        ?>
+                        <p class="read-time"><?php echo $datePublished;?></p>
                     </div>
                     <div class="third-line">
                         <h4> <?php echo $col->source->name;?></h4>
