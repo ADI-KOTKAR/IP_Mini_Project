@@ -82,6 +82,9 @@
                             <br>
                             <input type="password" name="ConfirmPassword" size="30" placeholder="Confirm Password" />
                             <br>
+                            <h4 style="font-family: Montserrat; margin-top:5px">
+                                Already a user? <a href="Login.php" style=" color:#2ecc71;">Login</a> now.
+                            </h4>
                             <input class="b" type="submit" name="Submit" value="Register" />
                         </center>
                     </form>

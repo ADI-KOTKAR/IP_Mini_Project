@@ -55,6 +55,9 @@
                             <br>
                             <input type="password" name="Password" size="30" placeholder="Password" />
                             <br>
+                            <h4 style="font-family: Montserrat; margin-top:5px">
+                                Not a User? <a href="Signup.php" style=" color:#2ecc71;">Register</a> now.
+                            </h4>
                             <input class="b" type="submit" name="Submit" value="Login" />
                         </center>
                     </form>
