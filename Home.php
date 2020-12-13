@@ -6,11 +6,6 @@
         <link rel="stylesheet" href="css/home.css">
         <title>TechVents | Home</title>
     </head>
-    <script>
-    $(function() {
-        const $gallery = $('.gallery a').simpleLightbox();
-      });
-    </script>
     <body>
     <nav class="navbar">
       <div class="container">
@@ -19,8 +14,8 @@
             <img src="images/Techvents-text-removebg-preview.png" alt="" class="logo-text">
         </div>
         <ul class="nav">
-          <li><a href="Blog.php">Blogs</a></li>
-          <li><a href="Login.php">Login</a></li>
+          <li><a href="Blog.php"><b> Blogs</b></a></li>
+          <li><a href="Login.php"><b> Login</b></a></li>
           <!-- <li><a href="#specs">Specs</a></li>
 					<li><a href="#contact">Contact</a></li> -->
         </ul>
@@ -36,7 +31,7 @@
                 Blogs | Events | News
           </p>
           <h4>A <b>One-Stop Destination</b> for quality Tech related stuff.</h4>
-          <a href="SIgnup.php" class="btn">Get Started</a>
+          <a href="Signup.php" class="btn">Get Started</a>
         </div>
         <img src="images/img1.png" alt="" />
       </div>

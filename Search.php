@@ -5,12 +5,12 @@
                 global $ConnectingDB;
                 
                 if (isset($_POST["Category"]) && $_POST["Category"]!="all"){
-                    echo 'Search for: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Category'].'</b></button>';
+                    echo 'Category: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Category'].'</b></button>';
                     $Category = $_POST["Category"];
                     $ViewQuery = "SELECT * FROM admin_panel WHERE category='$Category' ORDER BY id desc";
                 }
                 elseif(isset($_POST["Search"]) && $_POST["Search"]!="everything"){
-                    echo 'Categories: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Search'].'</b></button>';
+                    echo 'Search for: <button style=" background-image: linear-gradient(to right top, #2ec771, #4dd163, #6bdb51, #89e33a); padding:8px; border-radius:20px; color:white; border:none; margin-bottom:10px"><b>'.$_POST['Search'].'</b></button>';
                     $Search = $_POST["Search"];
                     $ViewQuery = "SELECT * FROM admin_panel 
                                     WHERE datetime LIKE '%$Search%' 

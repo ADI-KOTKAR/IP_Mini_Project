@@ -125,7 +125,7 @@
             ?>
         <div class="full-post-header">
             <div class="category-tags">
-                <button class="btn-select"><?php echo $Category;?></button>
+                <button class="btn-select" style="border:none"><?php echo $Category;?></button>
             </div>
             <h1><?php echo $Title;?></h1>
         </div>

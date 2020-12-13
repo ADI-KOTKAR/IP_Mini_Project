@@ -22,7 +22,7 @@
                     $_SESSION["SuccessMessage"] = "Welcome Back Boss - {$_SESSION["Username"]}!";
                     Redirect_to("dashboard.php");
                 } else {
-                    $_SESSION["SuccessMessage"] = "Welcome Back {$_SESSION["Username"]}!";
+                    $_SESSION["SuccessMessage"] = "Welcome {$_SESSION["Username"]}!";
                     Redirect_to("dashboard_user.php");
                 }
                 

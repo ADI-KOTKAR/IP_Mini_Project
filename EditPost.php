@@ -130,7 +130,7 @@
             <textarea name="Post" id="post">
                 <?php echo $PostToBeUpdated; ?>
             </textarea>
-            <input id="add" type="Submit" name="Submit" value="Add New Post"><br>
+            <input id="add" type="Submit" name="Submit" value="Update Post"><br>
         </form>
     </div>
 </div>
