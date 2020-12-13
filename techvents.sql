@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 12, 2020 at 10:27 PM
+-- Generation Time: Dec 13, 2020 at 11:42 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.11
 
@@ -49,10 +49,9 @@ INSERT INTO `admin_panel` (`id`, `datetime`, `title`, `category`, `author`, `ima
 (27, 'December-07-2020 11:25:36', 'Why Is Network Security Important?', 'Network Security', 'Praveenkumar', 'Network_Secutity.jpg', 'As the internet evolves and computer networks become bigger and bigger, network security has become one of the most important factors for companies to consider. Big enterprises like Microsoft are designing and building software products that need to be protected against foreign attacks.\r\n\r\nBy increasing network security, you decrease the chance of privacy spoofing, identity or information theft and so on. Piracy is a big concern to enterprises that are victims of its effects.\r\n\r\nAnything from software, music and movies to books, games, etc. are stolen and copied because security is breached by malicious individuals.'),
 (29, 'December-07-2020 11:27:25', 'Changing How Startups See Network Security', 'Network Security', 'Praveenkumar', 'Network_Secutity.jpg', 'Experience is a good teacher. However, you don’t have to wait to get your system hacked before learning a thing or two about the evils of technology. Just because you are only starting up does not mean you are prone from cyber attacks. Think about what happened to startups, some well-funded at that, when they failed to prioritize digital security.'),
 (30, 'December-07-2020 11:28:18', 'How I would explain a decade of web development to a time traveler from 2007', 'Web Development', 'Praveenkumar', 'Web_Development.jpg', 'Hello friend! I hope you like this new world of ours. It’s a lot different than the world of 2007. Quick tip: if you just got a mortgage, go back and cancel it. Trust me.\r\n\r\nI’m glad that you’re still interested in computers! Today we have many more of them than we did 10 years ago, and that comes with new challenges. We wear computers on our wrists and faces, keep them in our pockets, and have them in our fridges and kettles. The cars are driving themselves pretty well, and we’ve taught programs to be better than humans at pretty much every game out there — except maybe drinking.'),
-(40, 'December-07-2020 11:38:19', 'Top 7 FREE Artificial Intelligence Courses from the Ivy League Universities', 'Web Development', 'Bob', 'AI.jpg', '                                    These days it feels like every week comes with a new AI course. With such volume, we need to be really selective with our time, energy and focus. A simple but effective strategy is to attend the courses from the best minds in the field.\r\n\r\n    Use your time effectively and attend the courses from the best minds in the field.\r\n\r\nWith the help of my fellow Data Scientists, we curated a list of the top 7 Artificial Intelligence courses from the Ivy League Universities. The course had to be free to be included in the list.\r\n\r\nI haven’t attended all the courses on the list but I got high praise from my colleagues. Next on my course list, I wish to attend is the Reinforcement Learning course.                                '),
 (41, 'December-07-2020 11:37:55', 'Fantasy Football + Artificial Intelligence Cheat Sheet!', 'Artificial Intelligence', 'Bob', 'AI.jpg', 'After hours and days of trial and error (and error and trial again) I feel confident enough to release the culmination of my two previous articles (part 1 & part 2) — a Machine Learning / Artificial Intelligence fantasy football 2017 cheat sheet.\r\n\r\nThe R squared scores were .84 and .78 for the top models run on QB and RB respectively!\r\n\r\nDid I lose you? Read below… and then buy my cheat sheet and let’s try this thing.'),
 (42, 'December-07-2020 13:18:19', 'Web Dev in 2020!', 'Web Development', 'Bob', 'Web_Development.jpg', 'Web development is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based Internet applications, electronic businesses, and social network services'),
-(43, 'December-09-2020 00:59:13', 'What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Akash', 'IoT.jpg', 'The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes. ');
+(43, 'December-13-2020 14:20:24', '👌What is the IoT? Everything you need to know about the Internet of Things right now', 'Internet of Things', 'Aditya', 'download.png', '                The Internet of Things, or IoT, refers to the billions of physical devices around the world that are now connected to the internet, all collecting and sharing data. Thanks to the arrival of super-cheap computer chips and the ubiquity of wireless networks, it\'s possible to turn anything, from something as small as a pill to something as big as an aeroplane, into a part of the IoT. Connecting up all these different objects and adding sensors to them adds a level of digital intelligence to devices that would be otherwise dumb, enabling them to communicate real-time data without involving a human being. The Internet of Things is making the fabric of the world around us more smarter and more responsive, merging the digital and physical universes.             ');
 
 -- --------------------------------------------------------
 
@@ -97,7 +96,7 @@ CREATE TABLE `claps` (
 
 INSERT INTO `claps` (`id`, `datetime`, `clapedby`, `admin_panel_id`) VALUES
 (2, 'December-08-2020 19:12:30', 14, 42),
-(10, 'December-12-2020 13:59:33', 14, 43);
+(12, 'December-13-2020 14:24:22', 14, 43);
 
 -- --------------------------------------------------------
 
@@ -125,7 +124,6 @@ INSERT INTO `comments` (`id`, `datetime`, `name`, `email`, `comment`, `approvedb
 (9, 'December-07-2020 15:49:30', 'hitesh', 'hitesh@ryt.com', '<b>Bold</b>\r\n<i>Italics</i>', 'Shreyas', 'ON', 29),
 (10, 'December-07-2020 18:30:20', 'bob', 'bob@gmail.com', 'Nice Article\r\n<b>Great Stuff</b>', 'Praveenkumar', 'OFF', 41),
 (11, 'December-07-2020 18:31:57', 'opinion', 'op@345', 'Agreed Completely!', 'Shreyas', 'OFF', 42),
-(12, 'December-07-2020 20:57:05', 'ko', 'lp@fg.com', '<i>Tammy Abraham</i>\r\n<b>Bob</b>\r\n<img src=\"https://img.icons8.com/emoji/48/000000/-emoji-christmas-tree.png\"/>', 'Shreyas', 'ON', 40),
 (15, 'December-12-2020 19:19:32', 'RandomGuy 2.0', 'rdguy@234', 'I just love FPL!', 'Aditya', 'ON', 41);
 
 -- --------------------------------------------------------
@@ -152,7 +150,8 @@ INSERT INTO `registration` (`id`, `datetime`, `addedby`, `username`, `password`,
 (14, 'December-08-2020 10:41:50', 'Shreyas', 'Aditya', '$2y$10$7ouYYKYgP1rrYg3IUFkzaeDDeiZcJvM6PnYCNmFV11rqpB4Pxm6kC', 'Admin'),
 (15, 'December-10-2020 05:59:58', 'Aditya Kotkar', 'Shreyas', '$2y$10$4ynrvn0pUFEVnEz.p2Tryezvt9qcX/5NQP4cBHyv2zuITSK6HXit.', 'User'),
 (16, 'December-10-2020 06:36:12', 'Aditya Kotkar', 'Bob', '$2y$10$7bQQ82715MQmmK6e1ZUQsOgSdRPbhxr72d9t0CJchnEedj3irFlF.', 'User'),
-(18, 'December-12-2020 18:44:55', 'Aditya Kotkar', 'Praveen', '$2y$10$u7CVePZoi7q1aGthbDI5SO/w/bFL4uMZcHCjbdgDQtEHBkB0Of6XW', 'User');
+(18, 'December-12-2020 18:44:55', 'Aditya Kotkar', 'Praveen', '$2y$10$u7CVePZoi7q1aGthbDI5SO/w/bFL4uMZcHCjbdgDQtEHBkB0Of6XW', 'User'),
+(19, 'December-13-2020 14:30:14', 'Aditya Kotkar', 'Srajan', '$2y$10$zPPVQQWlBNXvW0AVAkNbueFsEDh34zeApNy3iPQEA.QxUVYr8BPYW', 'User');
 
 --
 -- Indexes for dumped tables
@@ -199,31 +198,31 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `admin_panel`
 --
 ALTER TABLE `admin_panel`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `claps`
 --
 ALTER TABLE `claps`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables

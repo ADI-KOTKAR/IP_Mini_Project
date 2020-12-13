@@ -50,7 +50,7 @@
                     <img class="Logo" src="images/icons8-bluestacks-75.png" alt="">
                     <form action="Login.php" method="post">
                         <center>
-                            <h1>SIGIN</h1>
+                            <h1>SIGN IN</h1>
                             <input type="text" name="Username" size="30" placeholder="Name" />
                             <br>
                             <input type="password" name="Password" size="30" placeholder="Password" />
