@@ -77,6 +77,6 @@
 
 ## Contributors
 
-1. [😎 Aditya Kotakar](https://github.com/ADI-KOTKAR)
+1. [😎 Aditya Kotkar](https://github.com/ADI-KOTKAR)
 2. [😁 Shreyas Khadapkar](https://github.com/shreyaskhadapkar)
 3. [😄 Praveenkumar Khatri](https://github.com/PraveenKhatri)
