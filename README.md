@@ -18,7 +18,7 @@
 
 
 <p align="center">
-  <img src="https://github.com/ADI-KOTKAR/My_Guard/blob/master/images/home.PNG">
+  <img src="https://github.com/ADI-KOTKAR/IP_Mini_Project/blob/main/images/home.PNG">
 </p>
 
 
