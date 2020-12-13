@@ -25,7 +25,7 @@
 
 **TechVents** is a *Content Aggregation* cum *Blog* Web Application which acts as a One Stop Destination for Tech related stuff.
 
-#### **General Features List:**
+## **General Features List:**
 
 1. Landing Page (Public)
 2. Blogs Page (Public)
@@ -35,7 +35,7 @@
 6. Sign up (Create User)
 7. Sign In (Access Account)
 
-#### **Admin Features List:**
+## **Admin Features List:**
 
 | Admin Dashboard | All posted blogs with **timestamp, category, banner, comments, live preview,** Comments **(approved/unapproved),**Action **- Edit/Delete Post** |
 | --- | --- |
@@ -51,7 +51,7 @@
 | Events | Events **(Scraped Data),** Domain-wise Events, Type-wise Events, Navigation to dashboard |
 | News | News **(NEWS API),** Category-wise News, Navigation to dashboard |
 
-#### **Users Feature List:**
+## **Users Feature List:**
 
 | User Dashboard | User&#39;s posted blogs with **timestamp, category, banner, comments, live preview** |
 | --- | --- |
@@ -64,7 +64,7 @@
 | Events | Events **(Scraped Data),** Domain-wise Events, Type-wise Events, Navigation to dashboard |
 | News | News **(NEWS API),** Category-wise News, Navigation to dashboard |
 
-#### **Additional Basic Features**
+## **Additional Basic Features**
 
 1. **AJAX** implemented on the Search of Blogs page.
 2. **Hashing** on Passwords for restricted password access.
@@ -74,3 +74,9 @@
 6. **Comment** (HTML based) and **Applause** on Posts.
 7. **Web Scraping** across websites for Events data stored in MongoDB Atlas Database (No-SQL Cloud Database).
 8. **News API** for accessing news from different sources, domains.
+
+## Contributors
+
+1. [😎 Aditya Kotakar](https://github.com/ADI-KOTKAR)
+2. [😁 Shreyas Khadapkar](https://github.com/shreyaskhadapkar)
+3. [😄 Praveenkumar Khatri](https://github.com/PraveenKhatri)
