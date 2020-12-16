@@ -75,6 +75,18 @@
 7. **Web Scraping** across websites for Events data stored in MongoDB Atlas Database (No-SQL Cloud Database).
 8. **News API** for accessing news from different sources, domains.
 
+## Setup
+
+1. Clone the repository - https://github.com/ADI-KOTKAR/IP_Mini_Project.git
+2. Open the file `DB.php` inside `include` directory and modify DB details accordingly.
+```
+  // Local DB
+  $Connection = new mysqli('host_name', 'db_username', 'db_user_password');
+  $ConnectingDB = $Connection -> select_db('db_name'); 
+``` 
+3. Import the `techvents.sql` file in your database or copy the contents and paste it into **Query** section of phpmyadmin and execute it.
+4. As your Database is setup, you're ready to go🚀 ! 
+
 ## Contributors
 
 1. [😎 Aditya Kotkar](https://github.com/ADI-KOTKAR)
